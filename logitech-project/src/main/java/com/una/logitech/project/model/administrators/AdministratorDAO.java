@@ -1,6 +1,6 @@
-package com.una.logitech_project.logitech_project.model.administrators;
+package com.una.logitech.project.model.administrators;
 
-import com.una.logitech_project.logitech_project.model.ConnectionJDBC;
+import com.una.logitech.project.model.ConnectionJDBC;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

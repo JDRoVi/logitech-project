@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class ConnectionJDBC {
 
     private final String driver = "com.mysql.cj.jdbc.Driver";
-    private final String strConnection = "jdbc:mysql://localhost/unadb?user=root&password=";
+    private final String strConnection = "jdbc:mysql://localhost/logitech_db?user=root&password=";
 
     public ConnectionJDBC() throws Exception {
         Class.forName(driver);

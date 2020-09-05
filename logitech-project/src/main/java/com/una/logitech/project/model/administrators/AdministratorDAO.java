@@ -1,6 +1,5 @@
-package com.una.logitech_project.logitech_project.model.administrators;
-
-import com.una.logitech_project.logitech_project.model.ConnectionJDBC;
+package com.una.logitech.project.model.administrators;
+import com.una.logitech.project.model.ConnectionJDBC;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdministratorDAO extends ConnectionJDBC {
-
     private static AdministratorDAO instance;
 
     public AdministratorDAO() throws Exception {
@@ -110,6 +108,5 @@ public class AdministratorDAO extends ConnectionJDBC {
         }finally{
             this.close(con, stm, rs);
         }
-        
     }
 }

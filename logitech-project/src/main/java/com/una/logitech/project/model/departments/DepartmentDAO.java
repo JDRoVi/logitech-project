@@ -95,14 +95,14 @@ public class DepartmentDAO extends ConnectionJDBC {
         PreparedStatement stm = null;
         ResultSet rs = null;
         Department dep = null;
-        String sql="SELECT * FROM department WHERE id=?";
-        try{
-            con=this.getConnection();
-            stm=con.prepareStatement(sql);
+        String sql = "SELECT * FROM department WHERE id=?";
+        try {
+            con = this.getConnection();
+            stm = con.prepareStatement(sql);
             stm.setInt(1, id);
-            rs=stm.executeQuery();
+            rs = stm.executeQuery();
             if (true) {
-                dep=new Department();
+                dep = new Department();
                 dep.setId(rs.getInt("id"));
                 dep.setAdmin_id(rs.getInt("admin_id"));
                 dep.setName(rs.getString("name"));
@@ -110,12 +110,12 @@ public class DepartmentDAO extends ConnectionJDBC {
                 dep.setLocation(rs.getString("location"));
                 dep.setTelephone(rs.getString("telephone"));
                 dep.setEmail(rs.getString("email"));
-            }else{
+            } else {
                 this.close(con, stm, rs);
-                throw new Exception("No se puede encontrar el departamento:"+id);
+                throw new Exception("No se puede encontrar el departamento:" + id);
             }
             return dep;
-        }finally{
+        } finally {
             this.close(con, stm, rs);
         }
     }

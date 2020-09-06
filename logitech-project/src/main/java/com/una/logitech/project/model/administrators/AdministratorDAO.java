@@ -85,7 +85,7 @@ public class AdministratorDAO extends ConnectionJDBC {
     public Administrator getAdministrators(int id)throws Exception{
         Connection con = null;
         PreparedStatement stm = null;
-        ResultSet rs=null;
+        ResultSet rs = null;
         Administrator adm=null;
         String sql="SELECT * FROM administrators WHERE id=?";
         try{
@@ -96,13 +96,13 @@ public class AdministratorDAO extends ConnectionJDBC {
             if(rs.next()){
                 adm=new Administrator();
                 adm.setId(rs.getInt("id"));
-                adm.setName(rs.getString("email"));
-                adm.setName(rs.getString("password"));
+                adm.setEmail(rs.getString("email"));
+                adm.setPassword(rs.getString("password"));
                 adm.setName(rs.getString("name"));
-                adm.setName(rs.getString("surname"));
+                adm.setSurname(rs.getString("surname"));
             }else{
                 this.close(con, stm, rs);
-                throw new Exception("No se puede encontrar el estudiante:"+id);
+                throw new Exception("No se puede encontrar el administrador:"+id);
             }
             return adm;
         }finally{

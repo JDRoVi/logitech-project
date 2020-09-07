@@ -3,8 +3,8 @@ package com.una.logitech.project.model.departments;
 import java.io.Serializable;
 
 public class Department implements Serializable{
-    private Integer id;
-    private Integer admin_id;
+    private int id;
+    private int admin_id;
     private String name;
     private String manager;
     private String location;

@@ -49,7 +49,7 @@ public class AdministratorDAO extends ConnectionJDBC {
     public void addAdministrator(Administrator adm) throws Exception {
         Connection con = null;
         PreparedStatement stm = null;
-        String sql = "INSERT INTO administrators(id,email,password,name;surname) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO administrators(id,email,password,name,surname) VALUES(?,?,?,?,?)";
         try {
             con = this.getConnection();
             stm = con.prepareStatement(sql);
@@ -108,5 +108,20 @@ public class AdministratorDAO extends ConnectionJDBC {
         }finally{
             this.close(con, stm, rs);
         }
+    }
+    
+    public void deleteAdministrators(int id) throws Exception{
+         Connection con = null;
+         PreparedStatement stm = null;
+         String sql = "DELETE FROM administrators WHERE id=?";
+         try{
+             con = this.getConnection();
+             stm = con.prepareStatement(sql);
+             stm.setInt(1,id);
+             stm.execute();
+         }finally{
+            this.close(con, stm);
+        }
+         
     }
 }

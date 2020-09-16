@@ -1,10 +1,10 @@
 package com.una.logitech.project.model.administrators;
-import java.io.Serializable;
 import javax.inject.Named;
 
 @Named
-public class Administrator implements Serializable{
+public class Administrator{
     private Integer id;
+    private String user;
     private String email;
     private String password;
     private String name;
@@ -14,16 +14,22 @@ public class Administrator implements Serializable{
         
     }
     
-    public Administrator(Integer id, String email, String password, String name, String surname){
+    public Administrator(Integer id,String user, String email, String password, String name, String surname){
         this.id = id;
+         this.user = user;
         this.email = email;
         this.password = password;
         this.name = name;
         this.surname = surname;
+       
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+    
+    public void setUser(String user){
+        this.user = user;
     }
 
     public void setEmail(String email) {
@@ -44,6 +50,10 @@ public class Administrator implements Serializable{
 
     public Integer getId() {
         return id;
+    }
+    
+    public String getUser(){
+        return user;
     }
 
     public String getEmail() {

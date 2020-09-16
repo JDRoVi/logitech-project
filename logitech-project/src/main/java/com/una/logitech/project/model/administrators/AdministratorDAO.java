@@ -33,11 +33,12 @@ public class AdministratorDAO extends ConnectionJDBC {
             rs = stm.executeQuery(sql);
             while (rs.next()) {
                 Integer id = rs.getInt("id");
+                String user = rs.getString("user");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
                 String name = rs.getString("name");
                 String surname = rs.getString("surname");
-                Administrator adm = new Administrator(id, email, password, name, surname);
+                Administrator adm = new Administrator(id,user, email, password, name, surname);
                 administrators.add(adm);
             }
             return administrators;
@@ -54,10 +55,11 @@ public class AdministratorDAO extends ConnectionJDBC {
             con = this.getConnection();
             stm = con.prepareStatement(sql);
             stm.setInt(1, adm.getId());
-            stm.setString(2, adm.getEmail());
-            stm.setString(3, adm.getPassword());
-            stm.setString(4, adm.getName());
-            stm.setString(5, adm.getSurname());
+            stm.setString(2, adm.getUser());
+            stm.setString(3, adm.getEmail());
+            stm.setString(4, adm.getPassword());
+            stm.setString(5, adm.getName());
+            stm.setString(6, adm.getSurname());
             stm.execute();
         } finally {
             this.close(con, stm);
@@ -72,10 +74,11 @@ public class AdministratorDAO extends ConnectionJDBC {
             con=this.getConnection();
             stm=con.prepareStatement(sql);
             stm.setInt(1, adm.getId());
-            stm.setString(2, adm.getEmail());
-            stm.setString(3, adm.getPassword());
-            stm.setString(4, adm.getName());
-            stm.setString(5, adm.getSurname());
+            stm.setString(2, adm.getUser());
+            stm.setString(3, adm.getEmail());
+            stm.setString(4, adm.getPassword());
+            stm.setString(5, adm.getName());
+            stm.setString(6, adm.getSurname());
             stm.execute();
         }finally{
             this.close(con, stm);
@@ -96,6 +99,7 @@ public class AdministratorDAO extends ConnectionJDBC {
             if(rs.next()){
                 adm=new Administrator();
                 adm.setId(rs.getInt("id"));
+                adm.setUser(rs.getString("user"));
                 adm.setEmail(rs.getString("email"));
                 adm.setPassword(rs.getString("password"));
                 adm.setName(rs.getString("name"));

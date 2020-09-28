@@ -1,16 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Home Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div class="encabezado"> <!--ENCABEZADOS -->
+                <div>
+                    <div> <!--logo de la U --> 
+                        <h:graphicImage library="images" name="UNA.png" style="width:150px;"/>
+                    </div>
+                    <div> <!-- Titulo de sistema -->
+                        <h2>Sistema de Registro</h2>
+                    </div>
+                </div>
+            </div>
+            <div> <!--MENU -->
+                <h:form>
+                    <p:menubar>
+                        <p:submenu label="Estudiantes">
+                            <p:menuitem value="List de Estudiantes" action="/student/list-students"/>
+                            <p:menuitem value="Nuevo estudiante"/>
+                        </p:submenu>
+                        <p:submenu label="Profesores">
+                            <p:menuitem value="List de Profesores"/>
+                            <p:menuitem value="Nuevo Profesor"/>
+                        </p:submenu>
+                        <p:submenu label="Cursos">
+                            <p:menuitem value="List de Cursos"/>
+                            <p:menuitem value="Nuevo Curso"/>
+                        </p:submenu>
+                        <p:submenu label="Matricula">
+                            <p:menuitem value="Matricular"/>
+                            <p:menuitem value="Registro de notas"/>
+                            <p:separator/>
+                            <p:submenu label="Reportes">
+                                <p:menuitem value="Estudiantes por curso"/>
+                                <p:menuitem value="Cursos de Estudiante"/>
+                                <p:menuitem value="Cursos de Profesor"/>
+                            </p:submenu>
+                        </p:submenu>
+                        
+                        <f:facet name="options">
+                            <p:commandLink value="#{logged}, salir" action="#{loginController.logout()}"/>
+                        </f:facet>                        
+                    </p:menubar>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
 </html>
+

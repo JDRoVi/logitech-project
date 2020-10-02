@@ -1,0 +1,30 @@
+*{
+    margin:0px;
+    padding: 0px;
+    font-family:Verdana,Arial,Helvetica,sans-serif;
+}
+#wrapper{
+    width: 80%;
+    margin: 0 auto;
+}
+.encabezado{
+    background-color: #ededed;
+}
+.pie{
+    padding-top: 20px;
+    text-align: center;
+}
+.formulario{
+    width: 80%;
+    margin: 0 auto;
+}
+.boton{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+    background-color:#1883ba;
+    border-radius: 6px;
+    border:2px solid #0016b0;
+}

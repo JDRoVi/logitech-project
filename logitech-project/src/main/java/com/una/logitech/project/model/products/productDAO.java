@@ -7,22 +7,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDAO extends ConnectionJDBC {
-    private static ProductDAO instance;
+public class productDAO extends ConnectionJDBC {
+    private static productDAO instance;
     
-    public ProductDAO() throws Exception{
+    public productDAO() throws Exception{
         super();
     }
     
-    public static ProductDAO getInstance() throws Exception{
+    public static productDAO getInstance() throws Exception{
         if(instance == null){
-            instance = new ProductDAO();
+            instance = new productDAO();
         }
         return instance;
     }
     
-    public List<Product> getProduct() throws Exception{
-         List<Product> Products = new ArrayList<>();
+    public List<product> getProduct() throws Exception{
+         List<product> Products = new ArrayList<>();
         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
@@ -41,7 +41,7 @@ public class ProductDAO extends ConnectionJDBC {
                 int stock = rs.getInt("stock");
                 int min_stock = rs.getInt("min_stock");
                 int max_stock = rs.getInt("max_stock");
-                Product prod = new Product(id,category_id,admin_id,code,name,description,stock,max_stock,min_stock);
+                product prod = new product(id,category_id,admin_id,code,name,description,stock,max_stock,min_stock);
                 Products.add(prod);
             }
             return Products;

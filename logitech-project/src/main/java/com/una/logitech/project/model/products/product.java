@@ -1,6 +1,6 @@
 package com.una.logitech.project.model.products;
 
-public class Product{
+public class product{
     private int id;
     private int category_id;
     private int admin_id;
@@ -11,11 +11,11 @@ public class Product{
     private int max_stock;
     private int min_stock;
     
-    public Product(){
+    public product(){
         
     }
 
-    public Product(int id, int category_id, int admin_id, String code, String name, String description, int stock, int max_stock, int min_stock) {
+    public product(int id, int category_id, int admin_id, String code, String name, String description, int stock, int max_stock, int min_stock) {
         this.id = id;
         this.category_id = category_id;
         this.admin_id = admin_id;

@@ -1,6 +1,6 @@
 package com.una.logitech.project.model.products;
 
-public class Product {
+public class Product{
     private int id;
     private int category_id;
     private int admin_id;

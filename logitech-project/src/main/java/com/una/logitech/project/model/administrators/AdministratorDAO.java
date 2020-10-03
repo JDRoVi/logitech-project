@@ -73,12 +73,12 @@ public class AdministratorDAO extends ConnectionJDBC {
         try{
             con=this.getConnection();
             stm=con.prepareStatement(sql);
-            stm.setInt(1, adm.getId());
-            stm.setString(2, adm.getUser());
-            stm.setString(3, adm.getEmail());
-            stm.setString(4, adm.getPassword());
-            stm.setString(5, adm.getName());
-            stm.setString(6, adm.getSurname());
+            stm.setString(1, adm.getUser());
+            stm.setString(2, adm.getEmail());
+            stm.setString(3, adm.getPassword());
+            stm.setString(4, adm.getName());
+            stm.setString(5, adm.getSurname());
+            stm.setInt(6, adm.getId());
             stm.execute();
         }finally{
             this.close(con, stm);

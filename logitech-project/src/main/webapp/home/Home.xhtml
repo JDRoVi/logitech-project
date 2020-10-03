@@ -7,6 +7,7 @@
     <h:head>
         <title>Menu Principal</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
     <h:body>
         <div id="wrapper">
@@ -20,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="formulario">
                 <h:form>
                     <p:menubar>
                         <p:submenu label="Administración de Usuario">
@@ -44,12 +45,14 @@
                             <p:menuitem value="Administrar departamento" action="/departments/update-department"/>
                         </p:submenu>
                         <f:facet name="options">
-                            <p:commandLink value="#{logged}, salir" action="#{loginController.logout()}"/>
+                            <p:commandLink value="#{logged}Salir" action="#{loginController.logout()}"/>
                         </f:facet>                        
                     </p:menubar>
                 </h:form>
             </div>
+            <div class="pie">
+                <p>Todos los derechos reservados 2020</p>
+            </div>
         </div>
     </h:body>
 </html>
-

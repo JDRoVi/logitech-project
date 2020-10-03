@@ -1,16 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Producto nuevo</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>Agregar un producto</div>
-    </body>
-</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <title>Producto nuevo</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <h:outputStylesheet library="css" name="style.css"/>
+        </head>
+        <body>
+            <div id="wrapper">
+                <div class="encabezado"> 
+                    <div>
+                        <div>
+                            <h:graphicImage library="images" name="logitech-logo.png" style="width:150px;"/>
+                        </div>
+                        <div>
+                            <h2>Agregar un producto</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="formulario">
+                    <h:messages globalOnly="true"/>
+                    <h:form enctype="multipart/form-data">
+                        <div class="ui-fluid p-formgrid p-grid">
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="id" value="ID"/>
+                                <p:inputText id="id" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <h:message for="id"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="category_id" value="ID de categoria"/>
+                                <p:inputText id="category_id" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <h:message for="category_id"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="admin_id" value="ID de administrador"/>
+                                <p:inputText id="admin_id" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <h:message for="admin_id"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="code" value="Codigo"/>
+                                <p:inputText id="code" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <h:message for="code"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="name" value="Nombre"/>
+                                <p:inputText id="name" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <h:message for="name"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="description" value="Descripcion"/>
+                                <p:inputText id="description" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <h:message for="description"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="stock" value="Existencia actual"/>
+                                <p:inputText id="stock" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <h:message for="stock"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="max_stock" value="Existencia maxima"/>
+                                <p:inputText id="max_stock" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <h:message for="max_stock"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="min_stock" value="Existencia minima"/>
+                                <p:inputText id="min_stock" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <h:message for="min_stock"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="image" value="Seleccionar foto"/>
+                                <p:fileUpload id="image" uploadLabel="Subir" cancelLabel="Cancelar"
+                                              update="profeImage" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                                              listener="#{}"/>
+                                <p:graphicImage id="productImage" library="images" 
+                                                name="#{}" 
+                                                width="100px" height="80px"/>
+                                <h:message for="image"/>
+                            </div> 
+                            <h:commandLink value="Guardar" styleClass="boton" action="#{}"/>
+                        </div>
+                    </h:form>
+                </div>
+                <div class="pie">
+<p>Todos los derechos reservados 2020</p>
+                </div>
+            </div>
+        </body>
+    </html>

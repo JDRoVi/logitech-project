@@ -1,16 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Todos los departamentos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="style.css"/>
     </head>
     <body>
-        <div>Todos los departamentos</div>
+        <div id="wrapper">
+            <div class="encabezado"> 
+                <div>
+                    <div>
+                        <h:graphicImage library="images" name="logitech-logo.png" style="width:150px;"/>
+                    </div>
+                    <div>
+                        <h2>Todos los departamentos</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="formulario">
+                <h:messages globalOnly="true"/>
+                <h:form>
+                    <p:dataTable var="tempDeprt">
+                        <p:column headerText="Codigo">
+                            <h:outputText/>
+                        </p:column>
+                        <p:column headerText="ID de Usuario">
+                            <h:outputText/>
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <h:outputText/>
+                        </p:column>
+                        <p:column headerText="Encargado">
+                            <h:outputText/>
+                        </p:column>
+                        <p:column headerText="Ubicacion">
+                            <h:outputText/>
+                        </p:column>
+                        <p:column headerText="Telefono">
+                            <h:outputText/>
+                        </p:column>
+                        <p:column headerText="Correo Electronico">
+                            <h:outputText/>
+                        </p:column>
+                        <p:column headerText="Accion">
+                            <p:commandLink class="fa fa-trash-alt" 
+                                onclick="if(!confirm('Seguro de eliminar?')) return false"
+                                action="#{}"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </div>
+            <div class="pie">
+                
+            </div>
+        </div>
     </body>
 </html>

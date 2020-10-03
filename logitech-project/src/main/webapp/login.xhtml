@@ -7,9 +7,10 @@
     <h:head>
         <title>INICIO DE SESION</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
     <h:body>
-        <div>
+        <div id="wrapper">
             <div id="message">
                 <p:ajaxStatus style="display:block; margin-top:10px">
                     <f:facet name="default">
@@ -24,27 +25,20 @@
                 </p:ajaxStatus>
             </div>
             <h:form id="loginForm"> 
-                    <p:growl id="msg" showDetail="true" life="2000"/>
-                    <p:panel id="loginPnl" header="Login" 
-                             style="width:350px;margin:150px auto;">
-                        <h:panelGrid id="loginPanel" columns="1" cellpadding="5">
-                            <h:outputText value="Usuario"/>
-                            <p:inputText id="user" value="#{loginAdmController.adm.user}"/>
-                            <p:spacer></p:spacer>
-                            <h:outputText value="Contraseña"/>
-                            <p:password id="password" value="#{loginAdmController.adm.password}"/>
-                        </h:panelGrid>
-                        <h:panelGrid columns="1" cellpadding="10" width="100%">
-                            <p:commandButton id="loginButton" value="Login" update="loginForm"
-                                             action="#{loginAdmController.login()}" ajax="true" 
-                                             style="float:right;"></p:commandButton>
-                        </h:panelGrid>
-                        
-                    </p:panel>
-                </h:form>
-            <div> <!-- Formulario login-->
-                
-            </div>
+                <p:growl id="msg" showDetail="true" life="2000"/>
+                <p:panel id="loginPnl" header="Inicio de sesion" style="width:350px;margin:150px auto;">
+                    <h:panelGrid id="loginPanel" columns="1" cellpadding="5">
+                        <h:outputText value="Usuario"/>
+                        <p:inputText id="user" value="#{loginAdmController.adm.user}"/>
+                        <p:spacer></p:spacer>
+                        <h:outputText value="Contraseña"/>
+                        <p:password id="password" value="#{loginAdmController.adm.password}"/>
+                    </h:panelGrid>
+                    <h:panelGrid columns="1" cellpadding="10" width="100%">
+                        <p:commandButton id="loginButton" value="Login" update="loginForm" action="#{loginAdmController.login()}" ajax="true" style="float:right;"></p:commandButton>
+                    </h:panelGrid>
+                </p:panel>
+            </h:form>
         </div>
     </h:body>
 </html>

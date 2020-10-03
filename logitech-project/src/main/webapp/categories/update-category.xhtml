@@ -1,16 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Administrar categoria</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="style.css"/>
     </head>
     <body>
-        <div>Administrar categoria</div>
+        <div id="wrapper">
+            <div class="encabezado"> 
+                <div>
+                    <div>
+                        <h:graphicImage library="images" name="logitech-logo.png" style="width:150px;"/>
+                    </div>
+                    <div>
+                        <h2>Administrar categoria</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="formulario">
+                <h:messages globalOnly="true"/>
+                    <h:form>
+                        <div class="ui-fluid p-formgrid p-grid">
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="code" value="Codigo"/>
+                                 <p:inputText id="code" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="name" value="Nombre"/>
+                                 <p:inputText id="name" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="description" value="Descripcion"/>
+                                 <p:inputText id="description" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                            </div>
+                            <div class="p-field p-col-12">
+                                <p:outputLabel for="block" value="Bloque"/>
+                                 <p:inputText id="block" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                            </div>
+                            <h:inputHidden value="#{}"/>
+                            <h:commandLink value="Guardar" styleClass="boton"/>
+                        </div>
+                    </h:form>
+            </div>
+            <div class="pie">
+                
+            </div>
+        </div>
     </body>
 </html>

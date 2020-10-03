@@ -4,17 +4,20 @@
     font-family:Verdana,Arial,Helvetica,sans-serif;
 }
 #wrapper{
-    width: 80%;
+    background-color: #F4F4F4;
+    width: 100%;
     margin: 0 auto;
+    text-align: center;
 }
 .encabezado{
-    background-color: #ededed;
+    background-color: #676767;
 }
 .pie{
     padding-top: 20px;
     text-align: center;
 }
 .formulario{
+    background-color: #252626;
     width: 80%;
     margin: 0 auto;
 }

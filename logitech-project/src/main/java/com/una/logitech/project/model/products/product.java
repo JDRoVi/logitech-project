@@ -10,22 +10,12 @@ public class product{
     private int stock;
     private int max_stock;
     private int min_stock;
+    private byte[] image;
+    private String filename;
     
     public product(){
         
-    }
-
-    public product(int id, int category_id, int admin_id, String code, String name, String description, int stock, int max_stock, int min_stock) {
-        this.id = id;
-        this.category_id = category_id;
-        this.admin_id = admin_id;
-        this.code = code;
-        this.name = name;
-        this.description = description;
-        this.stock = stock;
-        this.max_stock = max_stock;
-        this.min_stock = min_stock;
-    }
+    }  
 
     public int getId() {
         return id;
@@ -98,6 +88,20 @@ public class product{
     public void setMin_stock(int min_stock) {
         this.min_stock = min_stock;
     }
-    
-    
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
 }

@@ -1,6 +1,7 @@
 package com.una.logitech.project.model.products;
 
 import com.una.logitech.project.model.ConnectionJDBC;
+import java.io.ByteArrayInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,7 +43,7 @@ public class productDAO extends ConnectionJDBC {
                 int stock = rs.getInt("stock");
                 int min_stock = rs.getInt("min_stock");
                 int max_stock = rs.getInt("max_stock");
-                product prod = new product(id,category_id,admin_id,code,name,description,stock,max_stock,min_stock);
+                product prod = new product();
                 Products.add(prod);
             }
             return Products;
@@ -67,6 +68,12 @@ public class productDAO extends ConnectionJDBC {
             stm.setInt(7, prd.getStock());
             stm.setInt(8,prd.getMin_stock());
             stm.setInt(9,prd.getMax_stock());
+            if (prd.getImage() != null) {
+             stm.setBinaryStream(10,new ByteArrayInputStream(prd.getImage()));
+            }else{
+                stm.setBinaryStream(10, null);
+            }
+            stm.setString(11, prd.getFilename());
             stm.execute();
             
         }finally{

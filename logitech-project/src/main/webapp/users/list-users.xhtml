@@ -30,25 +30,25 @@
                     <h:form>
                         <p:dataTable var="tempUser">
                             <p:column headerText="ID">
-                                <h:outputText/>
+                                <h:outputText value="#{tempUser.id}"/>
                             </p:column>
                             <p:column headerText="Usuario">
-                                <h:outputText/>
+                                <h:outputText value="#{tempUser.user}"/>
                             </p:column>
                             <p:column headerText="Correo Electronico">
-                                <h:outputText/>
+                                <h:outputText value="#{tempUser.email}"/>
                             </p:column>
                             <p:column headerText="Nombre">
-                                <h:outputText/>
+                                <h:outputText value="#{tempUser.name}"/>
                             </p:column>
                             <p:column headerText="Apellido">
-                                <h:outputText/>
+                                <h:outputText value="#{tempUser.surname}"/>
                             </p:column>
                             <p:column headerText="Accion">
                                 <p:commandLink class="fa fa-trash-alt" 
                                                onclick="if (!confirm('Seguro de eliminar?'))
                                             return false"
-                                               action="#{}"/>
+                                            action="#{adminController.deleteAdmin(tempUser.id)}"/>
                             </p:column>
                         </p:dataTable>
                     </h:form>

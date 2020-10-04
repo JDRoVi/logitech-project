@@ -31,30 +31,30 @@
                         <div class="ui-fluid p-formgrid p-grid">
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="user" value="Usuario"/>
-                                <p:inputText id="user" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="user" required="true" value="#{actAdmi.user}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="last"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="email" value="Correo Electronico"/>
-                                <p:inputText id="email" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="email" required="true" value="#{actAdmi.email}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="last"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="password" value="Contraseña"/>
-                                <p:inputText id="password" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="password" required="true" value="#{actAdmi.password}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="last"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="name" value="Nombre"/>
-                                <p:inputText id="name" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="name" required="true" value="#{actAdmi.name}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="last"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="surname" value="Apellido"/>
-                                <p:inputText id="surname" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="surname" required="true" value="#{actAdmi.surname}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="last"/>
                             </div>
-                            <h:inputHidden value="#{}"/>
+                            <h:inputHidden value="#{actAdmi.id}"/>
                             <h:commandLink value="Guardar" styleClass="boton" />
                         </div>
                     </h:form>

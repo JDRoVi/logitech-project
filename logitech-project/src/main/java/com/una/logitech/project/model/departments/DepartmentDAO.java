@@ -23,7 +23,7 @@ public class DepartmentDAO extends ConnectionJDBC {
         return instance;
     }
 
-    public List<Department> getDepartment() throws Exception {
+    public List<Department> getDepartments() throws Exception {
         List<Department> departments = new ArrayList<>();
         Connection con = null;
         Statement stm = null;
@@ -118,5 +118,21 @@ public class DepartmentDAO extends ConnectionJDBC {
         } finally {
             this.close(con, stm, rs);
         }
+    }
+    
+    
+    public void deleteDepartment(int id) throws Exception{
+         Connection con = null;
+         PreparedStatement stm = null;
+         String sql = "DELETE FROM department WHERE id=?";
+         try{
+             con = this.getConnection();
+             stm = con.prepareStatement(sql);
+             stm.setInt(1,id);
+             stm.execute();
+         }finally{
+            this.close(con, stm);
+        }
+         
     }
 }

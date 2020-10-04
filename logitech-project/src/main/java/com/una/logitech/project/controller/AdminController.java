@@ -63,11 +63,23 @@ public class AdminController implements Serializable {
     }
     
     public String addAdmin(){
-        logger.info("Guardando admin: "+this.getAdmin().getId());
+        logger.info("Guardando admin id: "+this.getAdmin().getId());
         try{
             dao.addAdministrator(getAdmin());
         }catch(Exception ex){
-            logger.log(Level.SEVERE,"Error agregando el curso",ex);
+            logger.log(Level.SEVERE,"Error agregando al administrador",ex);
+            addErrorMessage(ex.getMessage());
+            return null;
+        }
+        return "/users/list-users";
+    }
+    
+    public String updateAdmin(Administrator adm){
+        logger.info("Guardando nuevos datos admin id: "+adm.getId());
+        try{
+            dao.updateAdministrators(adm);
+        }catch(Exception ex){
+            logger.log(Level.SEVERE,"Error actualizando administrador",ex);
             addErrorMessage(ex.getMessage());
             return null;
         }

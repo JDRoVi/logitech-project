@@ -30,37 +30,37 @@
                     <h:form>
                         <p:dataTable var="tempDeprt">
                             <p:column headerText="Codigo">
-                                <h:outputText/>
+                                <h:outputText value="#{tempDeprt.id}"/>
                             </p:column>
                             <p:column headerText="ID de Usuario">
-                                <h:outputText/>
+                                <h:outputText value="#{tempDeprt.admin_id}"/>
                             </p:column>
                             <p:column headerText="Nombre">
-                                <h:outputText/>
+                                <h:outputText value="#{tempDeprt.name}"/>
                             </p:column>
                             <p:column headerText="Encargado">
-                                <h:outputText/>
+                                <h:outputText value="#{tempDeprt.manager}"/>
                             </p:column>
                             <p:column headerText="Ubicacion">
-                                <h:outputText/>
+                                <h:outputText value="#{tempDeprt.location}"/>
                             </p:column>
                             <p:column headerText="Telefono">
-                                <h:outputText/>
+                                <h:outputText value="#{tempDeprt.telephone}"/>
                             </p:column>
                             <p:column headerText="Correo Electronico">
-                                <h:outputText/>
+                                <h:outputText value="#{tempDeprt.email}"/>
                             </p:column>
                             <p:column headerText="Accion">
                                 <p:commandLink class="fa fa-trash-alt" 
                                                onclick="if (!confirm('Seguro de eliminar?'))
                                             return false"
-                                               action="#{}"/>
+                                            action="#{departmentController.deleteDepartment(tempDeprt.id)}"/>
                             </p:column>
                         </p:dataTable>
                     </h:form>
                 </div>
                 <div class="pie">
-
+<p>Todos los derechos reservados 2020</p>
                 </div>
             </div>
         </body>

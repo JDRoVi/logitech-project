@@ -31,35 +31,35 @@
                         <div class="ui-fluid p-formgrid p-grid">
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="admin_id" value="ID de Usuario"/>
-                                 <p:inputText id="admin_id" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                 <p:inputText id="admin_id" required="true" value="#{actDepartment.admin_id}" requiredMessage="Campo obligatorio"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="name" value="Nombre"/>
-                                 <p:inputText id="name" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                 <p:inputText id="name" required="true" value="#{actDepartment.name}" requiredMessage="Campo obligatorio"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="manager" value="Encargado"/>
-                                 <p:inputText id="manager" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                 <p:inputText id="manager" required="true" value="#{actDepartment.manager}" requiredMessage="Campo obligatorio"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="location" value="Ubicacion"/>
-                                 <p:inputText id="location" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                 <p:inputText id="location" required="true" value="#{actDepartment.location}" requiredMessage="Campo obligatorio"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="telephone" value="Telefono"/>
-                                 <p:inputText id="telephone" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                 <p:inputText id="telephone" required="true" value="#{actDepartment.telephone}" requiredMessage="Campo obligatorio"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="email" value="Correo Electronico"/>
-                                 <p:inputText id="email" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                 <p:inputText id="email" required="true" value="#{actDepartment.email}" requiredMessage="Campo obligatorio"/>
                             </div>
-                            <h:inputHidden value="#{}"/>
+                            <h:inputHidden value="#{actDepartment.id}"/>
                             <h:commandLink value="Guardar" styleClass="boton"/>
                         </div>
                     </h:form>
             </div>
             <div class="pie">
-                
+                <p>Todos los derechos reservados 2020</p>
             </div>
         </div>
     </body>

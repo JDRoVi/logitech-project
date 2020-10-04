@@ -29,7 +29,7 @@ public class DepartmentController implements Serializable {
         dao = DepartmentDAO.getInstance();
     }
     
-     public List<Department> getCourses(){
+     public List<Department> getDepartments(){
         return departments;
     }
     
@@ -40,7 +40,7 @@ public class DepartmentController implements Serializable {
         logger.info("Cargando los departamentos");
         departments.clear();
         try{
-            departments=dao.getDepartments();
+            departments = dao.getDepartments();
         }catch(Exception ex){
             logger.log(Level.SEVERE, "Error al cargar los datos",ex);
             addErrorMessage(ex.getMessage());
@@ -52,7 +52,7 @@ public class DepartmentController implements Serializable {
         try{
             ExternalContext cont=FacesContext.getCurrentInstance().getExternalContext();
             Map<String,Object> mapa=cont.getSessionMap();
-            mapa.put("actCourse", this.depa);
+            mapa.put("actDepartment", this.depa);
         }catch(Exception ex){
             logger.log(Level.WARNING,"Error cargando el departamento id:"+id,ex);
             this.addErrorMessage("Problemas al cargar el registro desde la DB");
@@ -86,7 +86,7 @@ public class DepartmentController implements Serializable {
     }
     
     
-    public String deleteCourse(int id){
+    public String deleteDepartment(int id){
         logger.info("Eliminando curso id:"+id);
         try{
             dao.deleteDepartment(id);

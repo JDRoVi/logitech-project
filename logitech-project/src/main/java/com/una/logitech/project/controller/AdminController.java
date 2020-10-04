@@ -1,0 +1,105 @@
+
+package com.una.logitech.project.controller;
+
+import com.una.logitech.project.model.administrators.Administrator;
+import com.una.logitech.project.model.administrators.AdministratorDAO;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
+
+@Named
+@ViewScoped
+public class AdminController implements Serializable {
+    private List<Administrator> admins;
+    private AdministratorDAO dao;
+    private Administrator admin;
+    private final Logger logger= Logger.getLogger(this.getClass().getName());
+
+    public AdminController() throws Exception {
+        admins = new ArrayList<>();
+        dao = AdministratorDAO.getInstance();
+    }
+    
+    public List<Administrator> getAdmins(){
+        return admins;
+    }
+    
+    public void newInstances(){
+        this.setAdmin(new Administrator());
+    }
+    
+    public void loadAdmins(){
+        logger.info("Cargando administradores");
+        admins.clear();
+        try{
+            admins = dao.getAdministrators();
+        }catch(Exception ex){
+            logger.log(Level.SEVERE,"Error al cargar los datos,ex");
+            addErrorMessage(ex.getMessage());
+        }
+    }
+    
+    public String loadAdmin(int id){
+        logger.info ("Cargando los datos del administrador id:"+id);
+        try{
+            this.setAdmin(dao.getAdministrators(id));
+            ExternalContext cont= FacesContext.getCurrentInstance().getExternalContext();
+            Map<String,Object> mapa = cont.getSessionMap();
+            mapa.put("actAdmi",this.getAdmin());
+        }catch(Exception ex){
+            logger.log(Level.WARNING,"Error cargando el admin id:"+id,ex);
+            this.addErrorMessage("Problemas al cargar el registro desde la DB");
+            return null;
+        }
+        return "/users/update-user";
+    }
+    
+    public String addAdmin(){
+        logger.info("Guardando admin: "+this.getAdmin().getId());
+        try{
+            dao.addAdministrator(getAdmin());
+        }catch(Exception ex){
+            logger.log(Level.SEVERE,"Error agregando el curso",ex);
+            addErrorMessage(ex.getMessage());
+            return null;
+        }
+        return "/users/list-users";
+    }
+    
+    public String deleteAdmin(int id){
+        logger.info("Eliminando admin id: "+id);
+        try{
+            dao.deleteAdministrators(id);
+        }catch(Exception ex){
+            logger.log(Level.SEVERE, "Error al eliminar el admin:"+id,ex);
+            this.addErrorMessage("Error al eliminar el registro");
+            return null;
+        }        
+        return "/users/list-users?faces-redirect=true";
+    }
+
+    private void setAdmin(Administrator administrator) {
+        this.admin = administrator;
+    }
+
+    private void addErrorMessage(String message) {
+        FacesMessage mensaje=new FacesMessage("Error:"+message);
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+    }
+
+    private Administrator getAdmin() {
+        return admin;
+    }
+    
+    
+    
+    
+}

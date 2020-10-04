@@ -5,6 +5,9 @@
       xmlns:p="http://primefaces.org/ui">
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+     <f:metadata>
+            <f:event type="preRenderView" listener="#{ProductController.newInstance()}"/>
+        </f:metadata>
     <head>
         <title>Lista de productos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -58,39 +61,39 @@
             <div class="formulario">
                  <h:messages globalOnly="true"/>
                  <h:form>
-                    <p:dataTable value="#{}" var="tempProduct">
+                     <p:dataTable value="#{productController.products}" var="tempProduct">
                         <p:column headerText="ID">
-                            <h:outputText value="#{}"/>
+                            <h:outputText value="#{tempProduct.id}"/>
                         </p:column>
                         <p:column headerText="ID de categoria">
-                            <h:outputText value="#{}"/>
+                            <h:outputText value="#{tempProduct.category_id}"/>
                         </p:column>
                         <p:column headerText="ID de administrador">
-                            <h:outputText value="#{}"/>
+                            <h:outputText value="#{tempProduct.admin_id}"/>
                         </p:column>
                         <p:column headerText="Codigo">
-                            <h:outputText value="#{}"/>
+                            <h:outputText value="#{tempProduct.code}"/>
                         </p:column>
                         <p:column headerText="Nombre">
-                            <h:outputText value="#{}"/>
+                            <h:outputText value="#{tempProduct.name}"/>
                         </p:column>
                         <p:column headerText="Descripcion">
-                            <h:outputText value="#{}"/>
+                            <h:outputText value="#{tempProduct.description}"/>
                         </p:column>
                         <p:column headerText="Existencia actual">
-                            <h:outputText value="#{}"/>
+                            <h:outputText value="#{tempProduct.stock}"/>
                         </p:column>
                         <p:column headerText="Existencia maxima">
-                            <h:outputText value="#{}"/>
+                            <h:outputText value="#{tempProduct.max_stock}"/>
                         </p:column>
                         <p:column headerText="Existencia minima">
-                            <h:outputText value="#{}"/>
+                            <h:outputText value="#{tempProduct.min_stock}"/>
                         </p:column>
                         <p:column headerText="Foto">
                             <h:outputText value="ND"/>
                         </p:column>
                         <p:column headerText="Acción">
-                            <p:commandLink class="fa fa-trash-alt" onclick="if(!confirm('Seguro de eliminar?')) return false" action="#{}"/>
+                            <p:commandLink class="fa fa-trash-alt" onclick="if(!confirm('Seguro de eliminar?')) return false" action="#{productController.loadProduct(tempProduct.id)}"/>
                         </p:column>
                     </p:dataTable>
                 </h:form>    

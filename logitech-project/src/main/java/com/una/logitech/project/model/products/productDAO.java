@@ -23,7 +23,7 @@ public class productDAO extends ConnectionJDBC {
         return instance;
     }
     
-    public List<product> getProduct() throws Exception{
+    public List<product> getProducts() throws Exception{
          List<product> Products = new ArrayList<>();
         Connection con = null;
         Statement stm = null;
@@ -34,16 +34,16 @@ public class productDAO extends ConnectionJDBC {
             stm = con.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()) {
-                int id = rs.getInt("id");
-                int category_id = rs.getInt("category_id");
-                int admin_id = rs.getInt("admin_id");
-                String code = rs.getString("code");
-                String name = rs.getString("name");
-                String description = rs.getString("description");
-                int stock = rs.getInt("stock");
-                int min_stock = rs.getInt("min_stock");
-                int max_stock = rs.getInt("max_stock");
                 product prod = new product();
+                prod.setId(rs.getInt("id"));
+                prod.setCategory_id(rs.getInt("category_id"));
+                prod.setAdmin_id(rs.getInt("admin_id"));
+                prod.setCode(rs.getString("code"));
+                prod.setName(rs.getString("name"));
+                prod.setDescription(rs.getString("description"));
+                prod.setStock(rs.getInt("stock"));
+                prod.setMin_stock(rs.getInt("min_stock"));
+                prod.setMax_stock(rs.getInt("max_stock"));
                 Products.add(prod);
             }
             return Products;

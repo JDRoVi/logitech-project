@@ -50,10 +50,9 @@ public class DepartmentController implements Serializable {
     public String loadDepartment(int id){
         logger.info("Cargando los datos para actualizar el departamento id:"+id);
         try{
-            this.setDepartment(dao.getDepartment(id));
             ExternalContext cont=FacesContext.getCurrentInstance().getExternalContext();
             Map<String,Object> mapa=cont.getSessionMap();
-            mapa.put("actCourse", this.getDepartment());
+            mapa.put("actCourse", this.depa);
         }catch(Exception ex){
             logger.log(Level.WARNING,"Error cargando el departamento id:"+id,ex);
             this.addErrorMessage("Problemas al cargar el registro desde la DB");
@@ -63,7 +62,7 @@ public class DepartmentController implements Serializable {
     }
     
     public String addDepartment(){
-        logger.info("Guardando el departamento:"+this.getDepartment().getId());
+        logger.info("Guardando el departamento:"+this.depa.getId());
         try{
             dao.addDepartment(getDepartment());
         }catch(Exception ex){
@@ -103,12 +102,12 @@ public class DepartmentController implements Serializable {
         this.depa = department;
     }
 
-    private void addErrorMessage(String message) {
+    public void addErrorMessage(String message) {
          FacesMessage mensaje=new FacesMessage("Error:"+message);
          FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
 
-    private Department getDepartment() {
+    public Department getDepartment() {
         return depa;
     }
 }

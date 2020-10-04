@@ -22,7 +22,8 @@ public class DepartmentDAO extends ConnectionJDBC {
         }
         return instance;
     }
-
+    
+    //l
     public List<Department> getDepartments() throws Exception {
         List<Department> departments = new ArrayList<>();
         Connection con = null;
@@ -49,7 +50,7 @@ public class DepartmentDAO extends ConnectionJDBC {
             this.close(con, stm, rs);
         }
     }
-
+    //agree
     public void addDepartment(Department dep) throws Exception {
         Connection con = null;
         PreparedStatement stm = null;
@@ -70,6 +71,7 @@ public class DepartmentDAO extends ConnectionJDBC {
         }
     }
 
+    //update
     public void updateDepartment(Department dep) throws Exception {
         Connection con = null;
         PreparedStatement stm = null;
@@ -119,6 +121,8 @@ public class DepartmentDAO extends ConnectionJDBC {
             this.close(con, stm, rs);
         }
     }
+    
+    
     
     
     public void deleteDepartment(int id) throws Exception{

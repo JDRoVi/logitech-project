@@ -55,7 +55,7 @@ public class productDAO extends ConnectionJDBC {
     public void addProduct(product prd) throws Exception{
         Connection con = null;
         PreparedStatement stm=null;
-        String sql ="INSERT INTO products(id,category_id,admin_id,code,name,description,stock,min_stock,max_stock) VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql ="INSERT INTO products(id,category_id,admin_id,code,name,description,stock,min_stock,max_stock,image,file_name) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         try{
             con=this.getConnection();
             stm=con.prepareStatement(sql);

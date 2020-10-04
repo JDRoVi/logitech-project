@@ -5,6 +5,9 @@
       xmlns:p="http://primefaces.org/ui">
     <!DOCTYPE html>
     <html xmlns="http://www.w3.org/1999/xhtml">
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{adminController.newInstances()}"/>
+        </f:metadata>
         <head>
             <title>Nuevo usuario</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -28,11 +31,11 @@
                         <div class="ui-fluid p-formgrid p-grid">
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="id" value="ID"/>
-                                <p:inputText id="id" required="true" value="#{adminController}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="id" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="user" value="Usuario"/>
-                                 <p:inputText id="user" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="user" required="true" value="#{adminController}" requiredMessage="Campo obligatorio"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="email" value="Correo Electronico"/>
@@ -50,7 +53,7 @@
                                 <p:outputLabel for="surname" value="Apellido"/>
                                  <p:inputText id="surname" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
                             </div>
-                            <h:commandLink value="Guardar" styleClass="boton" action="#{}"/>
+                            <h:commandLink value="Guardar" styleClass="boton" action="#{adminController.addAdmin()}"/>
                         </div>
                     </h:form>
                 </div>

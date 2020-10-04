@@ -54,59 +54,59 @@ public class CategoryController implements Serializable {
 
     public String loadCategories(int id) {
         logger.info("Cargando los datos para actualizar la categoria ID:" + id);
-        try{
+        try {
             ExternalContext cont = FacesContext.getCurrentInstance().getExternalContext();
-        Map<String, Object> mapa = cont.getSessionMap();
-        mapa.put("actCategory", this.category);
-        }catch(Exception ex){
-            logger.log(Level.WARNING,"Error cargando la categoria ID:"+id,ex);
+            Map<String, Object> mapa = cont.getSessionMap();
+            mapa.put("actCategory", this.category);
+        } catch (Exception ex) {
+            logger.log(Level.WARNING, "Error cargando la categoria ID:" + id, ex);
             this.addErrorMessage("Problemas al cargar el registro desde la DB");
             return null;
         }
         return "/categories/update-product";
     }
-    
-    public String addCategory(){
-        logger.info("Guardando estudiante:"+this.category.getId());
-        try{
+
+    public String addCategory() {
+        logger.info("Guardando estudiante:" + this.category.getId());
+        try {
             dao.addCategory(this.category);
-        }catch(Exception ex){
-            logger.log(Level.SEVERE,"Error agregando la categoria",ex);
+        } catch (Exception ex) {
+            logger.log(Level.SEVERE, "Error agregando la categoria", ex);
             addErrorMessage(ex.getMessage());
             return null;
         }
         return "/categories/list-products?faces-redirect=true";
     }
-    
-    public String updateCategory(Category ctg){
-        logger.info("Guardando los cambios da lategoria ID:"+this.category.getId());
-        try{
+
+    public String updateCategory(Category ctg) {
+        logger.info("Guardando los cambios de la categoria ID:" + this.category.getId());
+        try {
             dao.updateCategory(ctg);
-        }catch(Exception ex){
-            logger.log(Level.SEVERE,"Error actualizando la categoria",ex);
+        } catch (Exception ex) {
+            logger.log(Level.SEVERE, "Error actualizando la categoria", ex);
             addErrorMessage(ex.getMessage());
             return null;
         }
         return "/categories/list-products?faces-redirect=true";
     }
-    
-    public String deleteCategory(int id){
-        logger.info("Eliminando la categoria ID:"+id);
-        try{
+
+    public String deleteCategory(int id) {
+        logger.info("Eliminando la categoria ID:" + id);
+        try {
             dao.deleteCategories(id);
-        }catch(Exception ex){
-            logger.log(Level.SEVERE, "Error al eliminar la categoria:"+id,ex);
+        } catch (Exception ex) {
+            logger.log(Level.SEVERE, "Error al eliminar la categoria:" + id, ex);
             this.addErrorMessage("Error al eliminar el registro");
             return null;
         }
         return "/categories/list-products?faces-redirect=true";
     }
-    
-    public Category getCategory(){
+
+    public Category getCategory() {
         return category;
     }
-    
-    public void setCategory(Category category){
+
+    public void setCategory(Category category) {
         this.category = category;
     }
 }

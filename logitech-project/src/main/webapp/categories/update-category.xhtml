@@ -5,6 +5,9 @@
       xmlns:p="http://primefaces.org/ui">
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{categoryController.newInstance()}"/>
+    </f:metadata>
     <head>
         <title>Administrar categoria</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -28,21 +31,21 @@
                         <div class="ui-fluid p-formgrid p-grid">
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="code" value="Codigo"/>
-                                 <p:inputText id="code" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="code" required="true" value="#{actCategory.code}" requiredMessage="Campo obligatorio"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="name" value="Nombre"/>
-                                 <p:inputText id="name" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                 <p:inputText id="name" required="true" value="#{actCategory.name}" requiredMessage="Campo obligatorio"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="description" value="Descripcion"/>
-                                 <p:inputText id="description" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                 <p:inputText id="description" required="true" value="#{actCategory.description}" requiredMessage="Campo obligatorio"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="block" value="Bloque"/>
-                                 <p:inputText id="block" required="true" value="#{}" requiredMessage="Campo obligatorio"/>
+                                 <p:inputText id="block" required="true" value="#{actCategory.block}" requiredMessage="Campo obligatorio"/>
                             </div>
-                            <h:inputHidden value="#{}"/>
+                            <h:inputHidden value="#{actCategory.id}"/>
                             <h:commandLink value="Guardar" styleClass="boton"/>
                         </div>
                     </h:form>

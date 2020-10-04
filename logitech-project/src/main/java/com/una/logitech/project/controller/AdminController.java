@@ -1,4 +1,3 @@
-
 package com.una.logitech.project.controller;
 
 import com.una.logitech.project.model.administrators.Administrator;
@@ -18,6 +17,7 @@ import javax.inject.Named;
 @Named
 @ViewScoped
 public class AdminController implements Serializable {
+    
     private List<Administrator> admins;
     private AdministratorDAO dao;
     private Administrator admin;
@@ -33,7 +33,12 @@ public class AdminController implements Serializable {
     }
     
     public void newInstances(){
-        this.setAdmin(new Administrator());
+        this.admin = new Administrator();
+    }
+    
+    private void addErrorMessage(String message) {
+        FacesMessage mensaje=new FacesMessage("Error:"+message);
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
     
     public void loadAdmins(){
@@ -50,10 +55,9 @@ public class AdminController implements Serializable {
     public String loadAdmin(int id){
         logger.info ("Cargando los datos del administrador id:"+id);
         try{
-            this.setAdmin(dao.getAdministrators(id));
             ExternalContext cont= FacesContext.getCurrentInstance().getExternalContext();
             Map<String,Object> mapa = cont.getSessionMap();
-            mapa.put("actAdmi",this.getAdmin());
+            mapa.put("actAdmi",this.admin);
         }catch(Exception ex){
             logger.log(Level.WARNING,"Error cargando el admin id:"+id,ex);
             this.addErrorMessage("Problemas al cargar el registro desde la DB");
@@ -63,9 +67,9 @@ public class AdminController implements Serializable {
     }
     
     public String addAdmin(){
-        logger.info("Guardando admin id: "+this.getAdmin().getId());
+        logger.info("Guardando admin id: "+this.admin.getId());
         try{
-            dao.addAdministrator(getAdmin());
+            dao.addAdministrator(this.admin);
         }catch(Exception ex){
             logger.log(Level.SEVERE,"Error agregando al administrador",ex);
             addErrorMessage(ex.getMessage());
@@ -75,7 +79,7 @@ public class AdminController implements Serializable {
     }
     
     public String updateAdmin(Administrator adm){
-        logger.info("Guardando nuevos datos admin id: "+adm.getId());
+        logger.info("Guardando nuevos datos admin id: "+this.admin.getId());
         try{
             dao.updateAdministrators(adm);
         }catch(Exception ex){
@@ -98,20 +102,11 @@ public class AdminController implements Serializable {
         return "/users/list-users?faces-redirect=true";
     }
 
-    private void setAdmin(Administrator administrator) {
-        this.admin = administrator;
-    }
-
-    private void addErrorMessage(String message) {
-        FacesMessage mensaje=new FacesMessage("Error:"+message);
-        FacesContext.getCurrentInstance().addMessage(null, mensaje);
-    }
-
-    private Administrator getAdmin() {
+    public Administrator getAdmin() {
         return admin;
     }
-    
-    
-    
-    
+
+    public void setAdmin(Administrator admin) {
+        this.admin = admin;
+    }
 }

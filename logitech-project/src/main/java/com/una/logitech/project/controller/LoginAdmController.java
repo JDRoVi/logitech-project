@@ -6,10 +6,11 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 @Named
-@RequestScoped
+@ViewScoped
 public class LoginAdmController implements Serializable{
     private Administrator Adm;
     
@@ -24,7 +25,7 @@ public class LoginAdmController implements Serializable{
         context.getExternalContext().getSessionMap().put("logged",this.getAdm().getId());
         System.out.println(this.getAdm().getUser());
         System.out.println(this.getAdm().getPassword());
-        return "/home/Home";
+        return "/users/add-user";
     }
     
     public String logout(){

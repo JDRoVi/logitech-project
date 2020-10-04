@@ -33,7 +33,7 @@ public class AdministratorDAO extends ConnectionJDBC {
             rs = stm.executeQuery(sql);
             while (rs.next()) {
                 Integer id = rs.getInt("id");
-                String user = rs.getString("user");
+                String user = rs.getString("username");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
                 String name = rs.getString("name");
@@ -50,7 +50,7 @@ public class AdministratorDAO extends ConnectionJDBC {
     public void addAdministrator(Administrator adm) throws Exception {
         Connection con = null;
         PreparedStatement stm = null;
-        String sql = "INSERT INTO administrators(id,email,password,name,surname) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO administrators(id,username,email,password,name,surname) VALUES(?,?,?,?,?,?)";
         try {
             con = this.getConnection();
             stm = con.prepareStatement(sql);
@@ -69,7 +69,7 @@ public class AdministratorDAO extends ConnectionJDBC {
     public void updateAdministrators(Administrator adm) throws Exception {
         Connection con = null;
         PreparedStatement stm = null;
-        String sql="UPDATE administrators SET email=?, password=?, name=?, surname=? WHERE id=?";
+        String sql="UPDATE administrators SET username=? email=?, password=?, name=?, surname=? WHERE id=?";
         try{
             con=this.getConnection();
             stm=con.prepareStatement(sql);
@@ -99,7 +99,7 @@ public class AdministratorDAO extends ConnectionJDBC {
             if(rs.next()){
                 adm=new Administrator();
                 adm.setId(rs.getInt("id"));
-                adm.setUser(rs.getString("user"));
+                adm.setUser(rs.getString("username"));
                 adm.setEmail(rs.getString("email"));
                 adm.setPassword(rs.getString("password"));
                 adm.setName(rs.getString("name"));

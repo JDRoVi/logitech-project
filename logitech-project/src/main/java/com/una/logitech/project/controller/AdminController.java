@@ -67,9 +67,9 @@ public class AdminController implements Serializable {
     }
     
     public String addAdmin(){
-        logger.info("Guardando admin id: "+this.admin.getId());
+        logger.info("Guardando admin id: "+admin.getId());
         try{
-            dao.addAdministrator(this.admin);
+            dao.addAdministrator(admin);
         }catch(Exception ex){
             logger.log(Level.SEVERE,"Error agregando al administrador",ex);
             addErrorMessage(ex.getMessage());

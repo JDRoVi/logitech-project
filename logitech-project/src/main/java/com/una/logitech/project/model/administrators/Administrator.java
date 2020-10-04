@@ -27,7 +27,6 @@ public class Administrator{
     public void setId(Integer id) {
         this.id = id;
     }
-    
     public void setUser(String user){
         this.user = user;
     }

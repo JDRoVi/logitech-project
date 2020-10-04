@@ -25,6 +25,39 @@
                         </div>
                     </div>
                 </div>
+                <div class="menu">
+                <h:form>
+                    <p:menubar>
+                        <p:submenu label="Administración de Usuario">
+                            <p:menuitem value="Lista de usuarios" action="/users/list-users"/>
+                            <p:menuitem value="Agregar usuario" action="/users/add-user"/>
+                            <p:menuitem value="Administrar usuario" action="/users/update-user"/>
+                        </p:submenu>
+                        
+                        <p:submenu label="Administración de categorías">
+                            <p:menuitem value="Todas las categorias" action="/categories/list-categories"/>
+                            <p:menuitem value="Crear nueva categoria" action="/categories/add-category"/>
+                            <p:menuitem value="Administrar categoria" action="/categories/update-category"/>
+                        </p:submenu>
+                        
+                        <p:submenu label="Administración de Productos">
+                            <p:menuitem value="Lista de productos" action="/products/list-products"/>
+                            <p:menuitem value="Agregar un producto" action="/products/add-product"/>
+                            <p:menuitem value="Administrar un producto" action="/products/update-product"/>
+                        </p:submenu>
+                        
+                        <p:submenu label="Administración de departamentos">
+                            <p:menuitem value="Todos los departamentos" action="/departments/list-departments"/>
+                            <p:menuitem value="Crear un departamento" action="/departments/add-department"/>
+                            <p:menuitem value="Administrar departamento" action="/departments/update-department"/>
+                        </p:submenu>
+                        
+                        <f:facet name="options">
+                            <p:commandLink value="#{logged}Salir" action="#{loginController.logout()}"/>
+                        </f:facet>
+                    </p:menubar>
+                </h:form>
+            </div>
                 <div class="formulario">
                     <h:messages globalOnly="true"/>
                     <h:form>

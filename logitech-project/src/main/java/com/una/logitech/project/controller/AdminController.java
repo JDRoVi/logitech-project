@@ -91,7 +91,7 @@ public class AdminController implements Serializable {
     }
     
     public String deleteAdmin(int id){
-        logger.info("Eliminando admin id: "+id);
+        logger.info("Eliminando admin id:"+id);
         try{
             dao.deleteAdministrators(id);
         }catch(Exception ex){

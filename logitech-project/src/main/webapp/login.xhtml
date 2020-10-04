@@ -34,14 +34,17 @@
                         <h:outputText value="Usuario" style="color: #FFFFFF;"/>
                         <p:inputText id="user" value="#{loginAdmController.adm.user}"/>
                         <p:spacer></p:spacer>
-                        <h:outputText value="Contraseña"/>
+                        <h:outputText value="Contraseña" style="color: #FFFFFF;"/>
                         <p:password id="password" value="#{loginAdmController.adm.password}"/>
                     </h:panelGrid>
-                    <h:panelGrid columns="1" cellpadding="10" width="100%">
-                        <p:commandButton id="loginButton" value="Login" update="loginForm" action="#{loginAdmController.login()}" ajax="true" style="float:right;"></p:commandButton>
+                    <h:panelGrid  columns="1" cellpadding="10" width="100%">
+                        <p:commandButton id="loginButton" value="Login" update="loginForm" action="#{loginAdmController.login()}" ajax="true" styleClass="boton" style="float: right;"></p:commandButton>
                     </h:panelGrid>
                 </p:panel>
             </h:form>
+            <div class="pie">
+                <p>Todos los derechos reservados 2020</p>
+            </div>
         </div>
     </h:body>
 </html>

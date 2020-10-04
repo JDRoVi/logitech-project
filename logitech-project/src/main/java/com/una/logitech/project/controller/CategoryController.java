@@ -57,7 +57,7 @@ public class CategoryController implements Serializable {
         try{
             ExternalContext cont = FacesContext.getCurrentInstance().getExternalContext();
         Map<String, Object> mapa = cont.getSessionMap();
-        mapa.put(actCategory, this.category);
+        mapa.put("actCategory", this.category);
         }catch(Exception ex){
             logger.log(Level.WARNING,"Error cargando la categoria ID:"+id,ex);
             this.addErrorMessage("Problemas al cargar el registro desde la DB");

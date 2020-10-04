@@ -63,7 +63,7 @@ public class CategoryController implements Serializable {
             this.addErrorMessage("Problemas al cargar el registro desde la DB");
             return null;
         }
-        return "/products/update-product";
+        return "/categories/update-product";
     }
     
     public String addCategory(){
@@ -75,7 +75,19 @@ public class CategoryController implements Serializable {
             addErrorMessage(ex.getMessage());
             return null;
         }
-        return "/products/list-products?faces-redirect=true";
+        return "/categories/list-products?faces-redirect=true";
+    }
+    
+    public String updateCategory(Category ctg){
+        logger.info("Guardando los cambios da lategoria ID:"+this.category.getId());
+        try{
+            dao.updateCategory(ctg);
+        }catch(Exception ex){
+            logger.log(Level.SEVERE,"Error actualizando la categoria",ex);
+            addErrorMessage(ex.getMessage());
+            return null;
+        }
+        return "/categories/list-products?faces-redirect=true";
     }
     
     public String deleteCategory(int id){
@@ -87,7 +99,7 @@ public class CategoryController implements Serializable {
             this.addErrorMessage("Error al eliminar el registro");
             return null;
         }
-        return "/product/list-products?faces-redirect=true";
+        return "/categories/list-products?faces-redirect=true";
     }
     
     public Category getCategory(){

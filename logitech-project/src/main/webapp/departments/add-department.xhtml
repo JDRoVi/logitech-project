@@ -3,95 +3,95 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-        <f:metadata>
-            <f:event type="preRenderView" listener="#{departmentController.newInstance()}"/>
-        </f:metadata>
-        <h:head>
-            <title>Nuevo departamento</title>
-            <link rel="shortcut icon" href="https://seeklogo.com/images/L/logitech-gaming-logo-B76FC713B0-seeklogo.com.png" type="image/png"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            <h:outputStylesheet library="css" name="style.css"/>
-        </h:head>
-        <h:body>
-            <div id="wrapper">
-                <div class="encabezado"> 
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{departmentController.newInstance()}"/>
+    </f:metadata>
+    <h:head>
+        <title>Nuevo departamento</title>
+        <link rel="shortcut icon" href="https://seeklogo.com/images/L/logitech-gaming-logo-B76FC713B0-seeklogo.com.png" type="image/png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div class="encabezado"> 
+                <div>
                     <div>
-                        <div>
-                            <h:graphicImage library="images" name="logitech-logo.png" style="width:150px;"/>
-                        </div>
-                        <div>
-                            <h2>Crear un departamento</h2>
-                        </div>
+                        <h:graphicImage library="images" name="logitech-logo.png" style="width:150px;"/>
+                    </div>
+                    <div>
+                        <h2>Crear un departamento</h2>
                     </div>
                 </div>
-                <div class="menu">
+            </div>
+            <div class="menu">
                 <h:form>
                     <p:menubar>
                         <p:submenu label="Administración de Usuario">
                             <p:menuitem value="Lista de usuarios" action="/users/list-users"/>
                             <p:menuitem value="Agregar usuario" action="/users/add-user"/>
                         </p:submenu>
-                        
+
                         <p:submenu label="Administración de categorías">
                             <p:menuitem value="Todas las categorias" action="/categories/list-categories"/>
                             <p:menuitem value="Crear nueva categoria" action="/categories/add-category"/>
                         </p:submenu>
-                        
+
                         <p:submenu label="Administración de Productos">
                             <p:menuitem value="Lista de productos" action="/products/list-products"/>
                             <p:menuitem value="Agregar un producto" action="/products/add-product"/>
                         </p:submenu>
-                        
+
                         <p:submenu label="Administración de departamentos">
                             <p:menuitem value="Todos los departamentos" action="/departments/list-departments"/>
                             <p:menuitem value="Crear un departamento" action="/departments/add-department"/>
                         </p:submenu>
-                        
+
                         <f:facet name="options">
                             <p:commandLink value="#{logged}Salir" action="#{loginAdmController.logout()}"/>
                         </f:facet>
                     </p:menubar>
                 </h:form>
             </div>
-                <div class="formulario">
-                    <h:messages globalOnly="true"/>
-                    <h:form>
-                        <div class="ui-fluid p-formgrid p-grid">
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="id" value="Codigo"/>
-                                <p:inputText id="id" required="true" value="#{departmentController.department.id}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="admin_id" value="ID de Usuario"/>
-                                <p:inputText id="admin_id" required="true" value="#{departmentController.department.admin_id}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="name" value="Nombre"/>
-                                <p:inputText id="name" required="true" value="#{departmentController.department.name}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="manager" value="Encargado"/>
-                                <p:inputText id="manager" required="true" value="#{departmentController.department.manager}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="location" value="Ubicacion"/>
-                                <p:inputText id="location" required="true" value="#{departmentController.department.location}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="telephone" value="Telefono"/>
-                                <p:inputText id="telephone" required="true" value="#{departmentController.department.telephone}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="email" value="Correo Electronico"/>
-                                <p:inputText id="email" required="true" value="#{departmentController.department.email}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <h:commandLink value="Guardar" styleClass="boton" action="#{departmentController.addDepartment()}"/>
+            <div class="formulario">
+                <h:messages globalOnly="true"/>
+                <h:form>
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="id" value="Codigo"/>
+                            <p:inputText id="id" required="true" value="#{departmentController.department.id}" requiredMessage="Campo obligatorio"/>
                         </div>
-                    </h:form>
-                </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="admin_id" value="ID de Usuario"/>
+                            <p:inputText id="admin_id" required="true" value="#{departmentController.department.admin_id}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="name" value="Nombre"/>
+                            <p:inputText id="name" required="true" value="#{departmentController.department.name}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="manager" value="Encargado"/>
+                            <p:inputText id="manager" required="true" value="#{departmentController.department.manager}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="location" value="Ubicacion"/>
+                            <p:inputText id="location" required="true" value="#{departmentController.department.location}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="telephone" value="Telefono"/>
+                            <p:inputText id="telephone" required="true" value="#{departmentController.department.telephone}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="email" value="Correo Electronico"/>
+                            <p:inputText id="email" required="true" value="#{departmentController.department.email}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <h:commandLink value="Guardar" styleClass="boton" action="#{departmentController.addDepartment()}"/>
+                    </div>
+                </h:form>
             </div>
-            <div class="pie">
+        </div>
+        <div class="pie">
             <p>Todos los derechos reservados 2020</p>
         </div>
-        </h:body>
-    </html>
+    </h:body>
+</html>

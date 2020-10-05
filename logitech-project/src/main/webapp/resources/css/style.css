@@ -38,6 +38,7 @@ html, body {
 }
 
 .ui-menuitem{
+    align-items: center;
     background:linear-gradient(#00A9E0, transparent);
 }
 

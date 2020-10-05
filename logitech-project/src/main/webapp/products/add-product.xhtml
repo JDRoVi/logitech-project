@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -6,12 +6,13 @@
     <f:metadata>
         <f:event type="preRenderView" listener="#{productController.newInstance()}"/>
        </f:metadata> 
-    <h:head>
+    <head>
         <title>Administrar un producto</title>
         <link rel="shortcut icon" href="https://seeklogo.com/images/L/logitech-gaming-logo-B76FC713B0-seeklogo.com.png" type="image/png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="https://kit.fontawesome.com/7c5563a911.js" crossorigin="anonymous"></script>
         <h:outputStylesheet library="css" name="style.css"/>
-    </h:head>
+    </head>
     <h:body>
         <div id="wrapper">
             <div class="encabezado"> 
@@ -24,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="menu">
+           <div class="menu">
                 <h:form>
                     <p:menubar>
                         <p:submenu label="Administración de Usuario">
@@ -108,7 +109,7 @@
                                 <h:message for="image"/>
                                 <h:inputHidden value="#{productController.addProduct()}"/>
                             <h:commandLink value="Guardar" styleClass="boton"/>
-                            </div>
+                         </div>
                     </div>
                </h:form>
             </div>

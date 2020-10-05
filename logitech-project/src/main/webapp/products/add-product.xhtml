@@ -1,10 +1,10 @@
-<!DOCTYPE html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
         <f:metadata>
-            <f:event type="preRenderView" listener="#{ProductController.newInstance()}"/>
+            <f:event type="preRenderView" listener="#{productController.newInstance()}"/>
         </f:metadata>
         <h:head>
             <title>Producto nuevo</title>
@@ -58,60 +58,60 @@
                         <div class="ui-fluid p-formgrid p-grid">
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="id" value="ID"/>
-                                <p:inputText id="id" required="true" value="#{ProductController.pdr.id}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="id" required="true" value="#{productController.pdr.id}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="id"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="category_id" value="ID de categoria"/>
-                                <p:inputText id="category_id" required="true" value="#{ProductController.pdr.category_id}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="category_id" required="true" value="#{productController.pdr.category_id}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="category_id"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="admin_id" value="ID de administrador"/>
-                                <p:inputText id="admin_id" required="true" value="#{ProductController.pdr.admin_id}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="admin_id" required="true" value="#{productController.pdr.admin_id}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="admin_id"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="code" value="Codigo"/>
-                                <p:inputText id="code" required="true" value="#{ProductController.pdr.code}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="code" required="true" value="#{productController.pdr.code}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="code"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="name" value="Nombre"/>
-                                <p:inputText id="name" required="true" value="#{ProductController.pdr.name}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="name" required="true" value="#{productController.pdr.name}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="name"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="description" value="Descripcion"/>
-                                <p:inputText id="description" required="true" value="#{ProductController.pdr.description}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="description" required="true" value="#{productController.pdr.description}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="description"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="stock" value="Existencia actual"/>
-                                <p:inputText id="stock" required="true" value="#{ProductController.pdr.stock}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="stock" required="true" value="#{productController.pdr.stock}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="stock"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="max_stock" value="Existencia maxima"/>
-                                <p:inputText id="max_stock" required="true" value="#{ProductController.pdr.max_stock}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="max_stock" required="true" value="#{productController.pdr.max_stock}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="max_stock"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="min_stock" value="Existencia minima"/>
-                                <p:inputText id="min_stock" required="true" value="#{ProductController.pdr.min_stock}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="min_stock" required="true" value="#{productController.pdr.min_stock}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="min_stock"/>
                             </div>
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="image" value="Seleccionar foto"/>
                                 <p:fileUpload id="image" uploadLabel="Subir" cancelLabel="Cancelar"
                                               update="productImage" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
-                                              listener="#{ProductController.upload}"/>
+                                              listener="#{productController.upload}"/>
                                 <p:graphicImage id="productImage" library="images" 
-                                                name="#{ProductController.temFilename}" 
+                                                name="#{productController.temFilename}" 
                                                 width="100px" height="80px"/>
                                 <h:message for="image"/>
                             </div> 
-                            <h:commandLink value="Guardar" styleClass="boton" action="#{ProductController.addProduct()}"/>
+                            <h:commandLink value="Guardar" styleClass="boton" action="#{productController.addProduct()}"/>
                         </div>
                     </h:form>
                 </div>

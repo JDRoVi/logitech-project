@@ -9,6 +9,8 @@
         <head>
             <title>Todos los departamentos</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+            <script src="https://kit.fontawesome.com/7c5563a911.js" crossorigin="anonymous"></script>
             <h:outputStylesheet library="css" name="style.css"/>
         </head>
         <body>
@@ -29,25 +31,21 @@
                         <p:submenu label="Administración de Usuario">
                             <p:menuitem value="Lista de usuarios" action="/users/list-users"/>
                             <p:menuitem value="Agregar usuario" action="/users/add-user"/>
-                            <p:menuitem value="Administrar usuario" action="/users/update-user"/>
                         </p:submenu>
                         
                         <p:submenu label="Administración de categorías">
                             <p:menuitem value="Todas las categorias" action="/categories/list-categories"/>
                             <p:menuitem value="Crear nueva categoria" action="/categories/add-category"/>
-                            <p:menuitem value="Administrar categoria" action="/categories/update-category"/>
                         </p:submenu>
                         
                         <p:submenu label="Administración de Productos">
                             <p:menuitem value="Lista de productos" action="/products/list-products"/>
                             <p:menuitem value="Agregar un producto" action="/products/add-product"/>
-                            <p:menuitem value="Administrar un producto" action="/products/update-product"/>
                         </p:submenu>
                         
                         <p:submenu label="Administración de departamentos">
                             <p:menuitem value="Todos los departamentos" action="/departments/list-departments"/>
                             <p:menuitem value="Crear un departamento" action="/departments/add-department"/>
-                            <p:menuitem value="Administrar departamento" action="/departments/update-department"/>
                         </p:submenu>
                         
                         <f:facet name="options">
@@ -82,10 +80,9 @@
                                 <h:outputText value="#{tempDeprt.email}"/>
                             </p:column>
                             <p:column headerText="Accion">
-                                <p:commandLink class="fa fa-trash-alt" 
-                                               onclick="if (!confirm('Seguro de eliminar?'))
-                                            return false"
-                                            action="#{departmentController.deleteDepartment(tempDeprt.id)}"/>
+                                <p:commandLink class="fa fa-edit" action="#{departmentController.loadDepartment(tempDeprt.id)}"/>
+                                 ||
+                                <p:commandLink class="fa fa-trash-alt" onclick="if (!confirm('Seguro de eliminar?')) return false" action="#{departmentController.deleteDepartment(tempDeprt.id)}"/>
                             </p:column>
                         </p:dataTable>
                     </h:form>

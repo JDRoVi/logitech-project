@@ -21,6 +21,7 @@ html, body {
 }
 
 .encabezado{
+    background:linear-gradient(#252626, transparent);
 }
 
 .pie{
@@ -33,17 +34,16 @@ html, body {
 
 
 .ui-menubar{
-    background: #00A9E0;
+    background:linear-gradient(#00A9E0, transparent);
 }
 
 .ui-menuitem{
-    background: #00A9E0;
+    background:linear-gradient(#00A9E0, transparent);
 }
 
 .tabla{
     background-color: #F4F4F4;
     width: 85%;
-    width: 95%;
     margin: 0 auto;
     margin-top: 2%;
     margin-bottom: 2%;

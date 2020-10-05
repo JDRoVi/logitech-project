@@ -24,7 +24,7 @@ public class ProductController implements Serializable {
     private productDAO dao;
     private product pdr;
     private byte[] temImg;
-    private String tempFilename="product.jpg";
+    private String tempFilename="";
     private final Logger logger = Logger.getLogger(this.getClass().getName());
     
     public ProductController()throws Exception{
@@ -86,10 +86,10 @@ public class ProductController implements Serializable {
         return "/products/list-products?faces-redirect=true";
     }
      
-    public void upload(FileUploadEvent evento){
+    public void upload(FileUploadEvent event){
         try{
-            this.temImg=evento.getFile().getContent();
-            this.tempFilename=evento.getFile().getFileName();
+            this.temImg=event.getFile().getContent();
+            this.tempFilename=event.getFile().getFileName();
             Util.SaveImgTemporary(temImg, tempFilename);
         }catch(Exception ex){
             this.addErrorMessage(ex.getMessage());

@@ -14,16 +14,19 @@ html, body {
     text-align: center;
     min-height: 100%;
     margin-bottom: -50px;
-    background: #F4F4F4;
+    background-image: url("images/Logitech-MX-Master-sale.jpg");
+    background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: 65% auto;
 }
 
 .encabezado{
-    background-color: #676767;
+    background: linear-gradient(#676767, white);
 }
 
 .pie{
-    background: #252626;
-    padding-top: 20px;
+    background: linear-gradient(white, #252626);
+    padding-top: 60px;
     text-align: center;
     color: #FFFFFF;
     height: 50px;
@@ -65,7 +68,6 @@ html, body {
 }
 
 .formulario{
-    background-color: #F4F4F4;
     width: 40%;
     margin: 0 auto;
     margin-top: 2%;
@@ -99,8 +101,3 @@ html, body {
 .ui-panel-titlebar{
     background: #00A9E0;
 }
-
-#loginForm{
-    background: #F4F4F4;
-}
-

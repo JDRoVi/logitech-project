@@ -10,7 +10,7 @@
         <title>Todas las categorias</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
-            <script src="https://kit.fontawesome.com/7c5563a911.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/7c5563a911.js" crossorigin="anonymous"></script>
         <h:outputStylesheet library="css" name="style.css"/>
     </head>
     <body>
@@ -74,9 +74,12 @@
                             <h:outputText value="#{tempDeprt.block}"/>
                         </p:column>
                         <p:column headerText="Accion">
-                            <p:commandLink class="fa fa-edit" action="#{categoryController.loadCategory(tempDeprt.id)}"/>
+                            <p:commandLink class="fa fa-edit"
+                                           action="#{categoryController.loadCategory(tempDeprt.id)}"/>
                             ||
-                            <p:commandLink class="fa fa-trash-alt" onclick="if(!confirm('Seguro de eliminar?')) return false" action="#{categoryController.deleteCategory(tempDeprt.id)}"/>
+                            <p:commandLink class="fa fa-trash-alt"
+                                           onclick="if(!confirm('Seguro de eliminar?')) return false"
+                                           action="#{categoryController.deleteCategory(tempDeprt.id)}"/>
                         </p:column>
                     </p:dataTable>
                 </h:form>

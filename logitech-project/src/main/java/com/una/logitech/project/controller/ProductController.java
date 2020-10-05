@@ -72,7 +72,6 @@ public class ProductController implements Serializable {
     }
     
      public String addProduct(){
-        logger.info("Guardando producto:"+this.getProduct().getId());
         try{
             this.pdr.setImage(temImg);
             this.pdr.setFilename(tempFilename);

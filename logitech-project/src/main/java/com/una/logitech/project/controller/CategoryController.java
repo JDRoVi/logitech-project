@@ -64,6 +64,7 @@ public class CategoryController implements Serializable {
             this.addErrorMessage("Problemas al cargar el registro desde la DB");
             return null;
         }
+        return "/categories/update-category";
     }
 
     public String addCategory() {

@@ -23,6 +23,14 @@ public class ProductController implements Serializable {
     private List<product> products;
     private productDAO dao;
     private product pdr;
+
+    public product getPdr() {
+        return pdr;
+    }
+
+    public void setPdr(product pdr) {
+        this.pdr = pdr;
+    }
     private byte[] temImg;
     private String tempFilename="";
     private final Logger logger = Logger.getLogger(this.getClass().getName());
@@ -37,7 +45,7 @@ public class ProductController implements Serializable {
         return products;
     }
     public void newInstance(){
-        this.setProduct(new product());
+        this.pdr = new product();
     }
     
     private void addErrorMessage(String msg){
@@ -48,7 +56,6 @@ public class ProductController implements Serializable {
     public String loadProduct(int id){
         logger.info("Cargando los datos para actualizar producto id:"+id);
         try{
-            this.setProduct(dao.getProduct(id));
             ExternalContext cont=FacesContext.getCurrentInstance().getExternalContext();
             Map<String,Object> mapa=cont.getSessionMap();
             mapa.put("actProduct", pdr);
@@ -72,10 +79,11 @@ public class ProductController implements Serializable {
     }
     
      public String addProduct(){
+        logger.info("Guardando producto:"+this.pdr.getId());
         try{
             this.pdr.setImage(temImg);
             this.pdr.setFilename(tempFilename);
-            dao.addProduct(this.getProduct());
+            dao.addProduct(this.pdr);
         }catch(Exception ex){
             logger.log(Level.SEVERE,"Error agregando producto",ex);
             addErrorMessage(ex.getMessage());
@@ -109,13 +117,7 @@ public class ProductController implements Serializable {
         return "/products/list-products?faces-redirect=true";
     }
 
-    public void setProduct(product product) {
-        this.pdr = product;
-    }
     
-    public product getProduct(){
-        return pdr;
-    }
     
     public String getTempFilename(){
         return this.tempFilename;

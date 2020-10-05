@@ -56,6 +56,7 @@ public class CategoryController implements Serializable {
     public String loadCategory(int id) {
         logger.info("Cargando los datos para actualizar la categoria ID:" + id);
         try {
+            this.category = dao.getCategory(id); 
             ExternalContext cont = FacesContext.getCurrentInstance().getExternalContext();
             Map<String, Object> mapa = cont.getSessionMap();
             mapa.put("actCategory", this.category);
@@ -63,7 +64,7 @@ public class CategoryController implements Serializable {
             logger.log(Level.WARNING, "Error cargando la categoria ID:" + id, ex);
             this.addErrorMessage("Problemas al cargar el registro desde la DB");
             return null;
-        }
+        }        
         return "/categories/update-category";
     }
 
@@ -79,10 +80,11 @@ public class CategoryController implements Serializable {
         return "/categories/list-categories";
     }
 
-    public String updateCategory(Category ctg) {
-        logger.info("Guardando los cambios de la categoria ID:" + this.category.getId());
+    public String updateCategory(Category cat) {
+        logger.info("Guardando los cambios de la categoria ID:" );
+        
         try {
-            dao.updateCategory(ctg);
+            dao.updateCategory(cat);
         } catch (Exception ex) {
             logger.log(Level.SEVERE, "Error actualizando la categoria", ex);
             addErrorMessage(ex.getMessage());

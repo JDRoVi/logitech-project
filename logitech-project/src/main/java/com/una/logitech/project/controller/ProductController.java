@@ -16,6 +16,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import org.primefaces.event.FileUploadEvent;
 
+
 @Named
 @ViewScoped
 public class ProductController implements Serializable {
@@ -38,11 +39,10 @@ public class ProductController implements Serializable {
     public void setPdr(product pdr) {
         this.pdr = pdr;
     }
-    
+
     public List<product> getProducts(){
         return products;
     }
-    
     public void newInstance(){
         this.pdr = new product();
     }
@@ -55,6 +55,7 @@ public class ProductController implements Serializable {
     public String loadProduct(int id){
         logger.info("Cargando los datos para actualizar producto id:"+id);
         try{
+            this.pdr = dao.getProduct(id);
             ExternalContext cont=FacesContext.getCurrentInstance().getExternalContext();
             Map<String,Object> mapa=cont.getSessionMap();
             mapa.put("actProduct", this.getPdr());
@@ -114,7 +115,5 @@ public class ProductController implements Serializable {
         }        
         return "/products/list-products?faces-redirect=true";
     }
-    public String getTempFilename(){
-        return this.tempFilename;
-    }
+
 }

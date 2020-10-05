@@ -67,7 +67,7 @@ public class CategoryDAO extends ConnectionJDBC{
      public void updateCategory(Category cat)throws Exception{
          Connection con = null;
          PreparedStatement stm = null;
-         String sql = "UPDATE categories SET id=?,code=?,name=?,description=?,block=? WHERE id=?";
+         String sql = "UPDATE categories SET code=?,name=?,description=?,block=? WHERE id=?";
          try{  
             con = this.getConnection();
             stm = con.prepareStatement(sql);

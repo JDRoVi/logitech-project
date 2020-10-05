@@ -4,8 +4,8 @@
     font-family:Verdana,Arial,Helvetica,sans-serif;
 }
 html, body {
-  height: 100%;
-  margin: 0;
+    height: 100%;
+    margin: 0;
 }
 
 #wrapper{
@@ -14,19 +14,19 @@ html, body {
     text-align: center;
     min-height: 100%;
     margin-bottom: -50px;
-    background-image: url("images/Logitech-MX-Master-sale.jpg");
+    background-image: url("images/logitech-background.jpg");
     background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: 65% auto;
+    background-repeat: no-repeat; 
+    background-size: auto;
 }
 
 .encabezado{
-    background: linear-gradient(#676767, white);
+    background: linear-gradient(#252626, transparent);
 }
 
 .pie{
-    background: linear-gradient(white, #252626);
-    padding-top: 60px;
+    background: #252626;
+    padding-top: 20px;
     text-align: center;
     color: #FFFFFF;
     height: 50px;
@@ -72,7 +72,7 @@ html, body {
     margin-top: 2%;
     margin-bottom: 2%;
     text-align: left;
-    
+
 }
 
 .p-field{

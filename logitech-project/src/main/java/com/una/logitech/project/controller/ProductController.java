@@ -1,4 +1,3 @@
-
 package com.una.logitech.project.controller;
 
 import com.una.logitech.project.model.products.product;
@@ -24,13 +23,6 @@ public class ProductController implements Serializable {
     private productDAO dao;
     private product pdr;
 
-    public product getPdr() {
-        return pdr;
-    }
-
-    public void setPdr(product pdr) {
-        this.pdr = pdr;
-    }
     private byte[] temImg;
     private String tempFilename="";
     private final Logger logger = Logger.getLogger(this.getClass().getName());
@@ -117,10 +109,15 @@ public class ProductController implements Serializable {
         return "/products/list-products?faces-redirect=true";
     }
 
-    
-    
     public String getTempFilename(){
         return this.tempFilename;
     }
     
+    public product getPdr() {
+        return pdr;
+    }
+
+    public void setPdr(product pdr) {
+        this.pdr = pdr;
+    }
 }

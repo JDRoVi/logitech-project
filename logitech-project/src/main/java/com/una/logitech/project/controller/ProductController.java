@@ -30,6 +30,7 @@ public class ProductController implements Serializable {
     public ProductController()throws Exception{
         products = new ArrayList<>();
         dao = productDAO.getInstance();
+        this.loadDepartments();
     }
     
     public List<product> getProducts(){
@@ -57,6 +58,17 @@ public class ProductController implements Serializable {
             return null;
         }        
         return "/products/update-product";
+    }
+    
+    public void loadDepartments(){
+        logger.info("Cargando productos...");
+        products.clear();
+        try{
+            products = dao.getProducts();
+        }catch(Exception ex){
+            logger.log(Level.SEVERE, "Error al cargar los datos",ex);
+            addErrorMessage(ex.getMessage());
+        }
     }
     
      public String addProduct(){

@@ -31,11 +31,9 @@ public class LoginAdmController extends ConnectionJDBC implements Serializable{
     public String login(){
         FacesContext context=FacesContext.getCurrentInstance();
         context.getExternalContext().getSessionMap().put("logged",this.getAdm().getId());
-        System.out.println(this.getAdm().getUser());
-        System.out.println(this.getAdm().getPassword());
-        PreparedStatement stm = null;
-        ResultSet rs = null;
-        Connection con = null;
+        PreparedStatement stm;
+        ResultSet rs;
+        Connection con;
         
         String sql ="SELECT username, password FROM administrators WHERE username = ?";
         
@@ -51,11 +49,11 @@ public class LoginAdmController extends ConnectionJDBC implements Serializable{
                     return "/login?faces-redirect=true";
                 }
             }
+            return "/login?faces-redirect=true";
         }catch (SQLException ex){
             Logger.getLogger(LoginAdmController.class.getName()).log(Level.SEVERE, null, ex);
             return "/login?faces-redirect=true";
         }
-        return "/login?faces-redirect=true";
     }
     
     public String logout(){

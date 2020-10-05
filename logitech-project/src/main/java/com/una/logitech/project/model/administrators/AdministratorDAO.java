@@ -40,7 +40,6 @@ public class AdministratorDAO extends ConnectionJDBC {
                 String surname = rs.getString("surname");
                 Administrator adm = new Administrator(id,user, email, password, name, surname);
                 administrators.add(adm);
-                System.out.println(rs.next());
             }
             return administrators;
         } finally {

@@ -25,7 +25,7 @@ public class LoginAdmController implements Serializable{
         context.getExternalContext().getSessionMap().put("logged",this.getAdm().getId());
         System.out.println(this.getAdm().getUser());
         System.out.println(this.getAdm().getPassword());
-        return "/users/list-users";
+        return "/users/update-user";
     }
     
     public String logout(){

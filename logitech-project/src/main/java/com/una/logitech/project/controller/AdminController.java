@@ -26,6 +26,7 @@ public class AdminController implements Serializable {
     public AdminController() throws Exception {
         admins = new ArrayList<>();
         dao = AdministratorDAO.getInstance();
+        this.loadAdmins();
     }
     
     public List<Administrator> getAdmins(){

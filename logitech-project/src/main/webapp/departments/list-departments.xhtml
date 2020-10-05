@@ -6,12 +6,12 @@
         <f:metadata>
             <f:event type="preRenderView" listener="#{departmentController.newInstance()}"/>
         </f:metadata>
-        <head>
+        <h:head>
             <title>Todos los departamentos</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <h:outputStylesheet library="css" name="style.css"/>
-        </head>
-        <body>
+        </h:head>
+        <h:body>
             <div id="wrapper">
                 <div class="encabezado"> 
                     <div>
@@ -59,7 +59,7 @@
                 <div class="formulario">
                     <h:messages globalOnly="true"/>
                     <h:form>
-                        <p:dataTable var="tempDeprt">
+                        <p:dataTable value="#{deparmentController.departments}" var="tempDeprt">
                             <p:column headerText="Codigo">
                                 <h:outputText value="#{tempDeprt.id}"/>
                             </p:column>
@@ -82,6 +82,9 @@
                                 <h:outputText value="#{tempDeprt.email}"/>
                             </p:column>
                             <p:column headerText="Accion">
+                                 <p:commandLink class="fa fa-edit" 
+                                               action="#{departmentcontroller.loadDepartment(tempUser.id)}"/>
+                                 ||
                                 <p:commandLink class="fa fa-trash-alt" 
                                                onclick="if (!confirm('Seguro de eliminar?'))
                                             return false"
@@ -91,8 +94,8 @@
                     </h:form>
                 </div>
                 <div class="pie">
-<p>Todos los derechos reservados 2020</p>
+                    <p>Todos los derechos reservados 2020</p>
                 </div>
             </div>
-        </body>
+        </h:body>
     </html>

@@ -26,7 +26,7 @@ public class CategoryDAO extends ConnectionJDBC{
         Connection con = null;
         Statement stm=null;
         ResultSet rs=null;
-        String sql="SELECT * FROM categories ORDER BY name";
+        String sql="SELECT * FROM categories ORDER BY id";
         try{
             con=this.getConnection();
             stm=con.createStatement();
@@ -49,7 +49,7 @@ public class CategoryDAO extends ConnectionJDBC{
      public void addCategory(Category cat) throws Exception {
         Connection con = null;
         PreparedStatement stm = null;
-        String sql = "INSERT INTO categories(id,code,name,description,block;) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO categories(id,code,name,description,block) VALUES(?,?,?,?,?)";
         try {
             con = this.getConnection();
             stm = con.prepareStatement(sql);

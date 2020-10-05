@@ -27,6 +27,7 @@ public class DepartmentController implements Serializable {
     public DepartmentController()throws Exception{
         departments = new ArrayList<>();
         dao = DepartmentDAO.getInstance();
+        this.loadDepartments();
     }
     
      public List<Department> getDepartments(){
@@ -98,7 +99,7 @@ public class DepartmentController implements Serializable {
         return "/departments/list-departments?faces-redirect=true";
     }
 
-    private void setDepartment(Department department) {
+    public void setDepartment(Department department) {
         this.depa = department;
     }
 

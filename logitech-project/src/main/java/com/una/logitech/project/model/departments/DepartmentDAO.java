@@ -1,5 +1,4 @@
 package com.una.logitech.project.model.departments;
-
 import com.una.logitech.project.model.ConnectionJDBC;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DepartmentDAO extends ConnectionJDBC {
-
     private static DepartmentDAO instance;
 
     public DepartmentDAO() throws Exception {
@@ -29,7 +27,7 @@ public class DepartmentDAO extends ConnectionJDBC {
         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM departments ORDER BY name";
+        String sql = "SELECT * FROM departments ORDER BY id";
         try {
             con = this.getConnection();
             stm = con.createStatement();

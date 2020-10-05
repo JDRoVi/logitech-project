@@ -26,6 +26,7 @@ public class CategoryController implements Serializable {
     public CategoryController() throws Exception {
         categories = new ArrayList<>();
         dao = CategoryDAO.getInstance();
+        this.loadCategories();
     }
 
     public List<Category> getCategories() {
@@ -75,7 +76,7 @@ public class CategoryController implements Serializable {
             addErrorMessage(ex.getMessage());
             return null;
         }
-        return "/categories/list-products?faces-redirect=true";
+        return "/categories/list-categories";
     }
 
     public String updateCategory(Category ctg) {
@@ -87,7 +88,7 @@ public class CategoryController implements Serializable {
             addErrorMessage(ex.getMessage());
             return null;
         }
-        return "/categories/list-products?faces-redirect=true";
+        return "/categories/list-categories?faces-redirect=true";
     }
 
     public String deleteCategory(int id) {
@@ -99,7 +100,7 @@ public class CategoryController implements Serializable {
             this.addErrorMessage("Error al eliminar el registro");
             return null;
         }
-        return "/categories/list-products?faces-redirect=true";
+        return "/categories/list-categories?faces-redirect=true";
     }
 
     public Category getCategory() {

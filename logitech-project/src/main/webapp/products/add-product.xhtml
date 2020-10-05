@@ -5,13 +5,15 @@
       xmlns:p="http://primefaces.org/ui">
     <f:metadata>
         <f:event type="preRenderView" listener="#{productController.newInstance()}"/>
-    </f:metadata> 
     <h:head>
+       </f:metadata> 
+    <head>
         <title>Administrar un producto</title>
         <link rel="shortcut icon" href="https://seeklogo.com/images/L/logitech-gaming-logo-B76FC713B0-seeklogo.com.png" type="image/png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="https://kit.fontawesome.com/7c5563a911.js" crossorigin="anonymous"></script>
         <h:outputStylesheet library="css" name="style.css"/>
-    </h:head>
+    </head>
     <h:body>
         <div id="wrapper">
             <div class="encabezado"> 
@@ -24,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="menu">
+           <div class="menu">
                 <h:form>
                     <p:menubar>
                         <p:submenu label="Administración de Usuario">
@@ -115,6 +117,14 @@
         <div class="pie">
             <hr/>
             <p>Todos los derechos reservados 2020</p>
+                         </div>
+                    </div>
+               </h:form>
+            </div>
+        </div>                      
+        <div class="pie">
+               <hr/>
+                <p>Todos los derechos reservados 2020</p>
         </div>
     </h:body>
 </html>

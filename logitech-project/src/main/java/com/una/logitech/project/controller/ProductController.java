@@ -24,14 +24,17 @@ public class ProductController implements Serializable {
     private productDAO dao;
     private product pdr;
     private byte[] temImg;
-    private String tempFilename="";
+    private String tempFilename="avatar.jpg";
     private final Logger logger = Logger.getLogger(this.getClass().getName());
      public ProductController()throws Exception{
         products = new ArrayList<>();
         dao = productDAO.getInstance();
         this.loadProducts();
     }
-    
+     
+    public void newInstance(){
+        this.pdr = new product();
+    }
     public product getPdr() {
         return pdr;
     }
@@ -42,9 +45,6 @@ public class ProductController implements Serializable {
 
     public List<product> getProducts(){
         return products;
-    }
-    public void newInstance(){
-        this.pdr = new product();
     }
     
     private void addErrorMessage(String msg){

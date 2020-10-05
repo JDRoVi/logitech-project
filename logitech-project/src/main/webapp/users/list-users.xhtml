@@ -3,17 +3,16 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    <!DOCTYPE html>
-    <html xmlns="http://www.w3.org/1999/xhtml">
         <f:metadata>
             <f:event type="preRenderView" listener="#{adminController.newInstances()}"/>
         </f:metadata>
-        <head>
+        <h:head>
             <title>Lista de usuarios</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>             
             <h:outputStylesheet library="css" name="style.css"/>
-        </head>
-        <body>
+        </h:head>
+        <h:body>
             <div id="wrapper">
                 <div class="encabezado"> 
                     <div>
@@ -61,8 +60,8 @@
                 <div class="tabla">
                     <h:messages globalOnly="true"/>
                     <h:form>
-                        <p:dataTable var="tempUser">
-                            <p:column headerText="ID">
+                        <p:dataTable value="#{adminController.admins}" var="tempUser">
+                            <p:column headerText="Id">
                                 <h:outputText value="#{tempUser.id}"/>
                             </p:column>
                             <p:column headerText="Usuario">
@@ -78,6 +77,9 @@
                                 <h:outputText value="#{tempUser.surname}"/>
                             </p:column>
                             <p:column headerText="Accion">
+                                <p:commandLink class="fa fa-edit" 
+                                               action="#{adminController.loadAdmin(tempUser.id)}"/>
+                                 ||
                                 <p:commandLink class="fa fa-trash-alt" 
                                                onclick="if (!confirm('Seguro de eliminar?'))
                                             return false"
@@ -90,5 +92,5 @@
                     <p>Todos los derechos reservados 2020</p>
                 </div>
             </div>
-        </body>
+        </h:body>
     </html>

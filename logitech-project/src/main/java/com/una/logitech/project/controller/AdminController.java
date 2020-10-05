@@ -29,7 +29,7 @@ public class AdminController implements Serializable {
     }
     
     public List<Administrator> getAdmins(){
-        return admins;
+        return this.admins;
     }
     
     public void newInstances(){

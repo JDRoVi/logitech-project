@@ -26,7 +26,7 @@ public class AdministratorDAO extends ConnectionJDBC {
         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM administrators ORDER BY name";
+        String sql = "SELECT * FROM administrators ORDER BY username";
         try {
             con = this.getConnection();
             stm = con.createStatement();
@@ -40,6 +40,7 @@ public class AdministratorDAO extends ConnectionJDBC {
                 String surname = rs.getString("surname");
                 Administrator adm = new Administrator(id,user, email, password, name, surname);
                 administrators.add(adm);
+                System.out.println(rs.next());
             }
             return administrators;
         } finally {

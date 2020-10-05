@@ -51,6 +51,7 @@ public class DepartmentController implements Serializable {
     public String loadDepartment(int id){
         logger.info("Cargando los datos para actualizar el departamento id:"+id);
         try{
+            this.depa = dao.getDepartment(id);
             ExternalContext cont=FacesContext.getCurrentInstance().getExternalContext();
             Map<String,Object> mapa=cont.getSessionMap();
             mapa.put("actDepartment", this.depa);

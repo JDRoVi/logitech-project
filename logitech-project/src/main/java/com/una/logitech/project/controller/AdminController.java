@@ -56,6 +56,7 @@ public class AdminController implements Serializable {
     public String loadAdmin(int id){
         logger.info ("Cargando los datos del administrador id:"+id);
         try{
+            this.admin = dao.getAdministrators(id);
             ExternalContext cont= FacesContext.getCurrentInstance().getExternalContext();
             Map<String,Object> mapa = cont.getSessionMap();
             mapa.put("actAdmi",this.admin);

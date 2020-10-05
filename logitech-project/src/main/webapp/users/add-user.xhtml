@@ -3,27 +3,27 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-        <f:metadata>
-            <f:event type="preRenderView" listener="#{adminController.newInstances()}"/>
-        </f:metadata>
-        <h:head>
-            <title>Nuevo usuario</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            <h:outputStylesheet library="css" name="style.css"/>
-        </h:head>
-        <h:body>
-            <div id="wrapper">
-                <div class="encabezado"> 
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{adminController.newInstances()}"/>
+    </f:metadata>
+    <h:head>
+        <title>Nuevo usuario</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div class="encabezado"> 
+                <div>
                     <div>
-                        <div>
-                            <h:graphicImage library="images" name="logitech-logo.png" style="width:150px;"/>
-                        </div>
-                        <div>
-                            <h2>Agregar un usuario</h2>
-                        </div>
+                        <h:graphicImage library="images" name="logitech-logo.png" style="width:150px;"/>
+                    </div>
+                    <div>
+                        <h2>Agregar un usuario</h2>
                     </div>
                 </div>
-                <div class="menu">
+            </div>
+            <div class="menu">
                 <h:form>
                     <p:menubar>
                         <p:submenu label="Administración de Usuario">
@@ -31,66 +31,66 @@
                             <p:menuitem value="Agregar usuario" action="/users/add-user"/>
                             <p:menuitem value="Administrar usuario" action="/users/update-user"/>
                         </p:submenu>
-                        
+
                         <p:submenu label="Administración de categorías">
                             <p:menuitem value="Todas las categorias" action="/categories/list-categories"/>
                             <p:menuitem value="Crear nueva categoria" action="/categories/add-category"/>
                             <p:menuitem value="Administrar categoria" action="/categories/update-category"/>
                         </p:submenu>
-                        
+
                         <p:submenu label="Administración de Productos">
                             <p:menuitem value="Lista de productos" action="/products/list-products"/>
                             <p:menuitem value="Agregar un producto" action="/products/add-product"/>
                             <p:menuitem value="Administrar un producto" action="/products/update-product"/>
                         </p:submenu>
-                        
+
                         <p:submenu label="Administración de departamentos">
                             <p:menuitem value="Todos los departamentos" action="/departments/list-departments"/>
                             <p:menuitem value="Crear un departamento" action="/departments/add-department"/>
                             <p:menuitem value="Administrar departamento" action="/departments/update-department"/>
                         </p:submenu>
-                        
+
                         <f:facet name="options">
                             <p:commandLink value="#{logged}Salir" action="#{loginController.logout()}"/>
                         </f:facet>
                     </p:menubar>
                 </h:form>
             </div>
-                <div class="formulario">
-                    <h:messages globalOnly="true"/>
-                    <h:form>
-                        <div class="ui-fluid p-formgrid p-grid">
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="id" value="Id"/>
-                                <p:inputText id="id" required="true" value="#{adminController.admin.id}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="user" value="Usuario"/>
-                                <p:inputText id="user" required="true" value="#{adminController.admin.user}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="email" value="Correo Electronico"/>
-                                <p:inputText id="email" required="true" value="#{adminController.admin.email}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="password" value="Contraseña"/>
-                                <p:inputText id="password" required="true" value="#{adminController.admin.password}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="name" value="Nombre"/>
-                                <p:inputText id="name" required="true" value="#{adminController.admin.name}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <div class="p-field p-col-12">
-                                <p:outputLabel for="surname" value="Apellido"/>
-                                <p:inputText id="surname" required="true" value="#{adminController.admin.surname}" requiredMessage="Campo obligatorio"/>
-                            </div>
-                            <h:commandLink value="Guardar" styleClass="boton" action="#{adminController.addAdmin()}"/>
+            <div class="formulario">
+                <h:messages globalOnly="true"/>
+                <h:form>
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="id" value="Id"/>
+                            <p:inputText id="id" required="true" value="#{adminController.admin.id}" requiredMessage="Campo obligatorio"/>
                         </div>
-                    </h:form>
-                </div>
-                <div class="pie">
-                    <p>Todos los derechos reservados 2020</p>
-                </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="user" value="Usuario"/>
+                            <p:inputText id="user" required="true" value="#{adminController.admin.user}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="email" value="Correo Electronico"/>
+                            <p:inputText id="email" required="true" value="#{adminController.admin.email}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="password" value="Contraseña"/>
+                            <p:inputText id="password" required="true" value="#{adminController.admin.password}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="name" value="Nombre"/>
+                            <p:inputText id="name" required="true" value="#{adminController.admin.name}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="surname" value="Apellido"/>
+                            <p:inputText id="surname" required="true" value="#{adminController.admin.surname}" requiredMessage="Campo obligatorio"/>
+                        </div>
+                        <h:commandLink value="Guardar" styleClass="boton" action="#{adminController.addAdmin()}"/>
+                    </div>
+                </h:form>
             </div>
-        </h:body>
-    </html>
+            <div class="pie">
+                <p>Todos los derechos reservados 2020</p>
+            </div>
+        </div>
+    </h:body>
+</html>

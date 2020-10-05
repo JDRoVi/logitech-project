@@ -30,7 +30,28 @@
 }
 
 .tabla{
-    
+    background-color: #F4F4F4;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.ui-datatable-header{
+    background: #00A9E0;
+}
+
+.ui-datatable{
+    background: #00A9E0;
+}
+
+.ui-datatable-data{
+    background: #00A9E0;
+}
+
+.ui-datatable-empty-message{
+    background: #676767;
+    color: #FFFFFF;
 }
 
 .formulario{

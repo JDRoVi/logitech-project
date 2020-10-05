@@ -3,11 +3,18 @@
     padding: 0px;
     font-family:Verdana,Arial,Helvetica,sans-serif;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 #wrapper{
-    background-color: #F4F4F4;
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    min-height: 100%;
+    margin-bottom: -50px;
+    background: #F4F4F4;
 }
 
 .encabezado{
@@ -19,7 +26,9 @@
     padding-top: 20px;
     text-align: center;
     color: #FFFFFF;
+    height: 50px;
 }
+
 
 .ui-menubar{
     background: #00A9E0;
@@ -31,7 +40,7 @@
 
 .tabla{
     background-color: #F4F4F4;
-    width: 70%;
+    width: 85%;
     margin: 0 auto;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -81,7 +90,6 @@
 .boton:hover{
     background: #0090BF;
 }
-
 
 .ui-panel{
     background: #252626;

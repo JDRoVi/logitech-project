@@ -1,29 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-        <f:metadata>
-            <f:event type="preRenderView" listener="#{productController.newInstance()}"/>
+    <f:metadata>
+            <f:event type="preRenderView" listener="#{ProductController.newInstance()}"/>
         </f:metadata>
-        <h:head>
-            <title>Producto nuevo</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            <h:outputStylesheet library="css" name="style.css"/>
-        </h:head>
-        <h:body>
-            <div id="wrapper">
-                <div class="encabezado"> 
+    <h:head>
+        <title>Administrar un producto</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div class="encabezado"> 
+                <div>
                     <div>
-                        <div>
-                            <h:graphicImage library="images" name="logitech-logo.png" style="width:150px;"/>
-                        </div>
-                        <div>
-                            <h2>Agregar un producto</h2>
-                        </div>
+                        <h:graphicImage library="images" name="logitech-logo.png" style="width:150px;"/>
+                    </div>
+                    <div>
+                        <h2>Administrar un producto</h2>
                     </div>
                 </div>
-                <div class="menu">
+            </div>
+            <div class="menu">
                 <h:form>
                     <p:menubar>
                         <p:submenu label="Administración de Usuario">
@@ -52,18 +53,13 @@
                     </p:menubar>
                 </h:form>
             </div>
-                <div class="formulario">
-                    <h:messages globalOnly="true"/>
-                    <h:form enctype="multipart/form-data">
+            <div class="formulario">
+                <h:messages globalOnly="true"/>
+                    <h:form>
                         <div class="ui-fluid p-formgrid p-grid">
                             <div class="p-field p-col-12">
-                                <p:outputLabel for="id" value="ID"/>
-                                <p:inputText id="id" required="true" value="#{productController.pdr.id}" requiredMessage="Campo obligatorio"/>
-                                <h:message for="id"/>
-                            </div>
-                            <div class="p-field p-col-12">
                                 <p:outputLabel for="category_id" value="ID de categoria"/>
-                                <p:inputText id="category_id" required="true" value="#{productController.pdr.category_id}" requiredMessage="Campo obligatorio"/>
+                                <p:inputText id="category_id" required="true" value="#{productController.pdr.id}" requiredMessage="Campo obligatorio"/>
                                 <h:message for="category_id"/>
                             </div>
                             <div class="p-field p-col-12">
@@ -104,20 +100,21 @@
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="image" value="Seleccionar foto"/>
                                 <p:fileUpload id="image" uploadLabel="Subir" cancelLabel="Cancelar"
-                                              update="productImage" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                                              update="profeImage" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
                                               listener="#{productController.upload}"/>
                                 <p:graphicImage id="productImage" library="images" 
-                                                name="#{productController.temFilename}" 
+                                                name="#{ProductController.temFilename}" 
                                                 width="100px" height="80px"/>
                                 <h:message for="image"/>
-                            </div> 
-                            <h:commandLink value="Guardar" styleClass="boton" action="#{productController.addProduct()}"/>
+                            <h:inputHidden value="#{productController.Update(pdr)}"/>
+                            <h:commandLink value="Guardar" styleClass="boton"/>
                         </div>
                     </h:form>
-                </div>
             </div>
-            <div class="pie">
-            <p>Todos los derechos reservados 2020</p>
         </div>
-        </h:body>
-    </html>
+            <div class="pie">
+                <hr/>
+                <p>Todos los derechos reservados 2020</p>
+        </div>
+    </h:body>
+</html>

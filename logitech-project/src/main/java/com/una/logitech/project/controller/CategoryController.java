@@ -53,7 +53,7 @@ public class CategoryController implements Serializable {
         }
     }
 
-    public String loadCategories(int id) {
+    public String loadCategory(int id) {
         logger.info("Cargando los datos para actualizar la categoria ID:" + id);
         try {
             ExternalContext cont = FacesContext.getCurrentInstance().getExternalContext();

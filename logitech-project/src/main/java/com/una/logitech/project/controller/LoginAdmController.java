@@ -4,6 +4,7 @@ package com.una.logitech.project.controller;
 import com.una.logitech.project.model.administrators.Administrator;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -24,7 +25,7 @@ public class LoginAdmController implements Serializable{
         context.getExternalContext().getSessionMap().put("logged",this.getAdm().getId());
         System.out.println(this.getAdm().getUser());
         System.out.println(this.getAdm().getPassword());
-        return "/departments/add-department";
+        return "/users/list-users";
     }
     
     public String logout(){

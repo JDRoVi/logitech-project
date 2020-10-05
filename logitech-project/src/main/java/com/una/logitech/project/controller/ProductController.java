@@ -23,7 +23,15 @@ public class ProductController implements Serializable {
     private List<product> products;
     private productDAO dao;
     private product pdr;
-
+    private byte[] temImg;
+    private String tempFilename="";
+    private final Logger logger = Logger.getLogger(this.getClass().getName());
+     public ProductController()throws Exception{
+        products = new ArrayList<>();
+        dao = productDAO.getInstance();
+        this.loadProducts();
+    }
+    
     public product getPdr() {
         return pdr;
     }
@@ -31,15 +39,9 @@ public class ProductController implements Serializable {
     public void setPdr(product pdr) {
         this.pdr = pdr;
     }
-    private byte[] temImg;
-    private String tempFilename="";
-    private final Logger logger = Logger.getLogger(this.getClass().getName());
     
-    public ProductController()throws Exception{
-        products = new ArrayList<>();
-        dao = productDAO.getInstance();
-        this.loadProducts();
-    }
+    
+   
     
     public List<product> getProducts(){
         return products;
@@ -58,7 +60,7 @@ public class ProductController implements Serializable {
         try{
             ExternalContext cont=FacesContext.getCurrentInstance().getExternalContext();
             Map<String,Object> mapa=cont.getSessionMap();
-            mapa.put("actProduct", pdr);
+            mapa.put("actProduct", this.getPdr());
         }catch(Exception ex){
             logger.log(Level.WARNING,"Error cargando el product id:"+id,ex);
             this.addErrorMessage("Problemas al cargar el registro desde la DB");
@@ -79,7 +81,7 @@ public class ProductController implements Serializable {
     }
     
      public String addProduct(){
-        logger.info("Guardando producto:"+this.pdr.getId());
+        logger.log(Level.INFO, "Guardando producto:{0}", this.pdr.getId());
         try{
             this.pdr.setImage(temImg);
             this.pdr.setFilename(tempFilename);
@@ -101,10 +103,9 @@ public class ProductController implements Serializable {
         }catch(Exception ex){
             this.addErrorMessage(ex.getMessage());
             logger.log(Level.SEVERE,"Error cargando imagen",ex);
-        }
-        
+        }        
     }
-      
+    
     public String deleteProduct(int id){
         logger.info("Eliminando products id:"+id);
         try{
@@ -116,8 +117,6 @@ public class ProductController implements Serializable {
         }        
         return "/products/list-products?faces-redirect=true";
     }
-
-    
     
     public String getTempFilename(){
         return this.tempFilename;

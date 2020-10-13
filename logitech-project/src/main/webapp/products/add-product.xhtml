@@ -1,19 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <f:metadata>
         <f:event type="preRenderView" listener="#{productController.newInstance()}"/>
+    </f:metadata> 
     <h:head>
-       </f:metadata> 
-    <head>
         <title>Administrar un producto</title>
         <link rel="shortcut icon" href="https://seeklogo.com/images/L/logitech-gaming-logo-B76FC713B0-seeklogo.com.png" type="image/png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script src="https://kit.fontawesome.com/7c5563a911.js" crossorigin="anonymous"></script>
         <h:outputStylesheet library="css" name="style.css"/>
-    </head>
+    </h:head>
     <h:body>
         <div id="wrapper">
             <div class="encabezado"> 
@@ -33,22 +32,18 @@
                             <p:menuitem value="Lista de usuarios" action="/users/list-users"/>
                             <p:menuitem value="Agregar usuario" action="/users/add-user"/>
                         </p:submenu>
-
                         <p:submenu label="Administración de categorías">
                             <p:menuitem value="Todas las categorias" action="/categories/list-categories"/>
                             <p:menuitem value="Crear nueva categoria" action="/categories/add-category"/>
                         </p:submenu>
-
                         <p:submenu label="Administración de Productos">
                             <p:menuitem value="Lista de productos" action="/products/list-products"/>
                             <p:menuitem value="Agregar un producto" action="/products/add-product"/>
                         </p:submenu>
-
                         <p:submenu label="Administración de departamentos">
                             <p:menuitem value="Todos los departamentos" action="/departments/list-departments"/>
                             <p:menuitem value="Crear un departamento" action="/departments/add-department"/>
                         </p:submenu>
-
                         <f:facet name="options">
                             <p:commandLink value="#{logged}Salir" action="#{loginAdmController.logout()}"/>
                         </f:facet>
@@ -102,29 +97,22 @@
                         <div class="p-field p-col-12">
                             <p:outputLabel for="image" value="Seleccionar foto"/>
                             <p:fileUpload id="image" uploadLabel="Subir" cancelLabel="Cancelar"
-                                          update="profeImage" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                                          update="productImage" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
                                           listener="#{productController.upload}"/>
                             <p:graphicImage id="productImage" library="images" 
-                                            name="#{ProductController.temFilename}" 
+                                            name="#{productController.tempFile}" 
                                             width="100px" height="80px"/>
                             <h:message for="image"/>
                             <h:inputHidden value="#{productController.addProduct()}"/>
                             <h:commandLink value="Guardar" styleClass="boton"/>
                         </div>
+                    </div>
                 </h:form>
             </div>
-        </div>
-        <div class="pie">
-            <hr/>
-            <p>Todos los derechos reservados 2020</p>
-                         </div>
-                    </div>
-               </h:form>
-            </div>
-        </div>                      
-        <div class="pie">
-               <hr/>
+            <div class="pie">
+                <hr/>
                 <p>Todos los derechos reservados 2020</p>
+            </div>
         </div>
     </h:body>
 </html>

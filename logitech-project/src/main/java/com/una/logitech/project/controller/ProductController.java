@@ -105,7 +105,7 @@ public class ProductController implements Serializable {
     }
     
     public String deleteProduct(int id){
-        logger.info("Eliminando products id:"+id);
+        logger.info("Eliminando el producto con el id:"+id);
         try{
             dao.deleteProduct(id);
         }catch(Exception ex){
@@ -114,6 +114,10 @@ public class ProductController implements Serializable {
             return null;
         }        
         return "/products/list-products?faces-redirect=true";
+    }
+    
+    public String getTempFile(){
+        return this.tempFilename;
     }
 
 }

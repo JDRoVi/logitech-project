@@ -8,11 +8,12 @@ import java.io.InputStream;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
-
 public class Util {
     public static void SaveImgTemporary(byte[] bytes, String name){
-        ServletContext context = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
-        String path = context.getRealPath("")+File.separatorChar+"resoutces"+File.separatorChar+"images"+File.separatorChar+name;
+        ServletContext context = (ServletContext) FacesContext.getCurrentInstance()
+                .getExternalContext().getContext();
+        String path = context.getRealPath("")+File.separatorChar+"resoutces"+
+                File.separatorChar+"images"+File.separatorChar+name;
         File file=null;
         InputStream in = null;
          try{

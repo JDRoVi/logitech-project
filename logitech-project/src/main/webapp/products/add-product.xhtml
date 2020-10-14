@@ -6,6 +6,7 @@
     <f:metadata>
         <f:event type="preRenderView" listener="#{productController.newInstance()}"/>
         <f:event type="preRenderView" listener="#{adminController.newInstances()}"/>
+        <f:event type="preRenderView" listener="#{categoryController.newInstance()}"/>
     </f:metadata> 
     <h:head>
         <title>Administrar un producto</title>
@@ -56,12 +57,23 @@
                 <h:form>
                     <div class="ui-fluid p-formgrid p-grid">
                         <div class="p-field p-col-12">
-                            <p:outputLabel for="category_id" value="ID de categoria"/>
-                            <p:inputText id="category_id" required="true" value="#{productController.pdr.id}" requiredMessage="Campo obligatorio"/>
-                            <h:message for="category_id"/>
+                            <p:outputLabel for="id" value="Id Producto"/>
+                            <p:inputText id="id" required="true" value="#{productController.pdr.id}" requiredMessage="Campo obligatorio"/>
+                            <h:message for="id"/>
                         </div>
                         <div class="p-field p-col-12">
-                            <p:outputLabel for="admin_id" value="Id Administrador"/>
+                            <p:outputLabel for="category_id" value="Categoria"/>
+                            <p:selectOneMenu id="category_id" value="#{productController.pdr.category_id}"
+                                                 panelStyle="100%" effect="fade"
+                                                 filter="true" filterMatchMode="startsWith">
+                                 <f:selectItems value="#{categoryController.categories}"
+                                                var="cat" itemLabel="#{cat.name} #{cat.id} #{cat.block}" 
+                                                itemValue="#{cat.id}"/>
+                                </p:selectOneMenu>
+                                <h:message for="Categoria"/>
+                        </div>
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="admin_id" value="Administrador"/>
                             <p:selectOneMenu id="admin_id" value="#{productController.pdr.admin_id}"
                                                  panelStyle="100%" effect="fade"
                                                  filter="true" filterMatchMode="startsWith">
@@ -69,7 +81,7 @@
                                                var="adm" itemLabel="#{adm.name} #{adm.id}" 
                                                itemValue="#{adm.id}"/>
                                 </p:selectOneMenu>
-                                <h:message for="administrador"/>
+                                <h:message for="Administrador"/>
                         </div>
                         <div class="p-field p-col-12">
                             <p:outputLabel for="code" value="Codigo"/>
@@ -110,8 +122,8 @@
                                             name="#{productController.tempFile}" 
                                             width="100px" height="80px"/>
                             <h:message for="image"/>
-                            <h:inputHidden value="#{productController.addProduct()}"/>
-                            <h:commandLink value="Guardar" styleClass="boton"/>
+                            <h:commandLink value="Guardar" styleClass="boton" 
+                                           action="#{productController.addProduct()}"/>
                         </div>
                     </div>
                 </h:form>

@@ -84,7 +84,7 @@ public class productDAO extends ConnectionJDBC {
     public void updateProduct(product prd)throws Exception{
         Connection con = null;
         PreparedStatement stm= null;
-        String sql ="UPDATE products SET category_id = ?,admin_id=?,code=?,name=?,description=?,stock=?,min_stock=?,max_stock=? WHERE id=?";
+        String sql ="UPDATE products SET category_id=?,admin_id=?,code=?,name=?,description=?,stock=?,min_stock=?,max_stock=?,image=?,file_name=? WHERE id=?";
         try{
             con=this.getConnection();
             stm=con.prepareStatement(sql);
@@ -97,8 +97,13 @@ public class productDAO extends ConnectionJDBC {
             stm.setInt(7,prd.getMin_stock());
             stm.setInt(8,prd.getMax_stock());
             stm.setInt(9,prd.getId());
-            stm.execute();
-            
+            if (prd.getImage() != null) {
+             stm.setBinaryStream(10,new ByteArrayInputStream(prd.getImage()));
+            }else{
+                stm.setBinaryStream(10, null);
+            }
+            stm.setString(11, prd.getFilename());
+            stm.execute();            
         }finally{
             this.close(con, stm);
         }
@@ -126,6 +131,7 @@ public class productDAO extends ConnectionJDBC {
                 prd.setStock(rs.getInt("stock"));
                 prd.setMax_stock(rs.getInt("max_stock"));
                 prd.setMin_stock(rs.getInt("min_stock"));
+                
                 
             }else{
                 this.close(con, stm,rs);

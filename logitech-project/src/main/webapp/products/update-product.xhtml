@@ -100,19 +100,20 @@
                             <div class="p-field p-col-12">
                                 <p:outputLabel for="image" value="Seleccionar foto"/>
                                 <p:fileUpload id="image" uploadLabel="Subir" cancelLabel="Cancelar"
-                                              update="profeImage" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                                              update="productImage" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
                                               listener="#{ProductController.upload}"/>
                                 <p:graphicImage id="productImage" library="images" 
                                                 name="#{ProductController.temFilename}" 
                                                 width="100px" height="80px"/>
                                 <h:message for="image"/>
-                            <h:inputHidden value="#{ProductController.Update(pdr)}"/>
-                            <h:commandLink value="Guardar" styleClass="boton"/>
+                            <h:commandLink value="Guardar" styleClass="boton" 
+                                           action="#{productController.updateProduct(pdr)}"/>
+                            </div>
                         </div>
                     </h:form>
             </div>
         </div>
-            <div class="pie">
+        <div class="pie">
             <p>Todos los derechos reservados 2020</p>
         </div>
     </h:body>

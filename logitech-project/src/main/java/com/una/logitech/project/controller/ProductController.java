@@ -116,6 +116,22 @@ public class ProductController implements Serializable {
         return "/products/list-products?faces-redirect=true";
     }
     
+    public String updateProduct(product prod){
+         logger.log(Level.INFO, "Actualizando producto producto:", this.pdr.getId());
+        try{
+            this.pdr.setImage(temImg);
+            this.pdr.setFilename(tempFilename);
+            dao.updateProduct(this.pdr);
+        }catch(Exception ex){
+            logger.log(Level.SEVERE,"Error actualizando producto",ex);
+            addErrorMessage(ex.getMessage());
+            return null;
+            
+        }
+        return "/products/list-products?faces-redirect=true";
+        
+    }
+    
     public String getTempFile(){
         return this.tempFilename;
     }

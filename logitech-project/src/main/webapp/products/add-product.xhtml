@@ -5,6 +5,7 @@
       xmlns:p="http://primefaces.org/ui">
     <f:metadata>
         <f:event type="preRenderView" listener="#{productController.newInstance()}"/>
+        <f:event type="preRenderView" listener="#{adminController.newInstances()}"/>
     </f:metadata> 
     <h:head>
         <title>Administrar un producto</title>
@@ -60,9 +61,15 @@
                             <h:message for="category_id"/>
                         </div>
                         <div class="p-field p-col-12">
-                            <p:outputLabel for="admin_id" value="ID de administrador"/>
-                            <p:inputText id="admin_id" required="true" value="#{productController.pdr.admin_id}" requiredMessage="Campo obligatorio"/>
-                            <h:message for="admin_id"/>
+                            <p:outputLabel for="admin_id" value="Id Administrador"/>
+                            <p:selectOneMenu id="admin_id" value="#{productController.pdr.admin_id}"
+                                                 panelStyle="100%" effect="fade"
+                                                 filter="true" filterMatchMode="startsWith">
+                                <f:selectItems value="#{adminController.admins}"
+                                               var="adm" itemLabel="#{adm.name} #{adm.id}" 
+                                               itemValue="#{adm.id}"/>
+                                </p:selectOneMenu>
+                                <h:message for="administrador"/>
                         </div>
                         <div class="p-field p-col-12">
                             <p:outputLabel for="code" value="Codigo"/>

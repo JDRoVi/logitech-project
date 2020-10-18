@@ -2,6 +2,7 @@ package com.una.logitech.project.model.products;
 
 import com.una.logitech.project.model.ConnectionJDBC;
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -111,6 +112,7 @@ public class productDAO extends ConnectionJDBC {
     
     public product getProduct(int id)throws Exception{
         Connection con=null;
+        InputStream is = null;
         PreparedStatement stm=null;
         ResultSet rs=null;
         product prd=null;
@@ -131,7 +133,7 @@ public class productDAO extends ConnectionJDBC {
                 prd.setStock(rs.getInt("stock"));
                 prd.setMax_stock(rs.getInt("max_stock"));
                 prd.setMin_stock(rs.getInt("min_stock"));
-                
+                            
                 
             }else{
                 this.close(con, stm,rs);
